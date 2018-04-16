@@ -3,7 +3,7 @@
     /**
      * 
      */
-    class Fornecedor {
+    class Fornecedores {
         
         function __construct($argument) {
         	
