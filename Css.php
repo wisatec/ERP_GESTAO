@@ -66,12 +66,12 @@
 			?>
 			<script>
 				$(document).ready(function(){
-					    $(".maskFone").mask("(99) 9999-9999?9");
-					    $(".maskFone").blur(function(event) {
+					    $("<? echo $campo ;?>").mask("(99) 9999-9999?9");
+					    $("<? echo $campo ;?>").blur(function(event) {
 					        if($(this).val().length == 15){
-					          $('.maskFone').mask('(99) 99999-999?9');
+					          $('<? echo $campo ;?>').mask('(99) 99999-999?9');
 					        } else {
-					          $('.maskFone').mask('(99) 9999-9999?9');
+					          $('<? echo $campo ;?>').mask('(99) 9999-9999?9');
 					        }
 					    });
 				});
