@@ -62,7 +62,22 @@
 		</style>
 		<?php
 	}
-
+		function MascararTelefone($campo){
+			?>
+			<script>
+				$(document).ready(function(){
+					    $(".maskFone").mask("(99) 9999-9999?9");
+					    $(".maskFone").blur(function(event) {
+					        if($(this).val().length == 15){
+					          $('.maskFone').mask('(99) 99999-999?9');
+					        } else {
+					          $('.maskFone').mask('(99) 9999-9999?9');
+					        }
+					    });
+				});
+			</script>
+			<?php
+		}
     }
     
 ?>
