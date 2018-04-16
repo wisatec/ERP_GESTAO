@@ -3,7 +3,7 @@
     /**
      * 
      */
-    class Fornecedor extends Conexao{
+    class Fornecedor {
         
         function __construct($argument) {
         	
@@ -13,7 +13,7 @@
 		 function PesquisaCnpj($value)
 		{
 			$sql = "SELECT f.Cnpj FROM Fornecedor f WHERE f.Cnpj LIKE '".$value."'";
-			$result = 	self::sqlSelectCount($Sql);
+			//$result = 	self::sqlSelectCount($Sql);
 			return $result;
 		}
 	}
