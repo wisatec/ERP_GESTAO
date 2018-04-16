@@ -3,6 +3,7 @@
 	require_once 'Constantes.php';
 	require_once 'Css.php';
 	require_once 'Fornecedor.php';
+	require_once 'Empresa.php';
 	
     /**
      * Classe Utilitários 
