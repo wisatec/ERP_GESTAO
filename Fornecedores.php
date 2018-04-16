@@ -2,7 +2,7 @@
     /**
      * 
      */
-    class Fornecedor extends Conexao {
+    class Fornecedores extends Conexao {
         
         function __construct($argument) {
             
