@@ -2,6 +2,8 @@
 	require_once 'Conexao.php';
 	require_once 'Constantes.php';
 	require_once 'Css.php';
+	require_once 'Fornecedor.php';
+	
     /**
      * Classe Utilitários 
      */
