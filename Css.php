@@ -84,6 +84,15 @@
 			</script>
 			<?php
 		}
-    }
+		function AlturaBloco($altura,$nome){
+			?>
+				<style type="text/css">
+					<? echo $nome; ?> {
+						width:<? $altura; ?>;
+					}				
+				</style>
+			<?php
+		}    
+}
     
 ?>
