@@ -12,7 +12,7 @@
 	   	
 			$sql = "SELECT CONCAT(TIMESTAMPDIFF(YEAR,". $nova_data.", NOW()),' anos') AS idade";
 			$result = self::sqlSelectOne($sql);
-			return $result;			
+			return 1;			
 	   }
    }
    
