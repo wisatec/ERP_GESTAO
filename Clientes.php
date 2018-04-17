@@ -2,7 +2,7 @@
     /**
      * 
      */
-    class Cliente extends Conexao {
+    class Clientes extends Conexao {
         
         function __construct($argument) {
 
