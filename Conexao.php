@@ -66,7 +66,7 @@ require_once 'Constantes.php';
 			$conn = self::conectar();
 			$stm = $conn->prepare($sql);		
 			$stm->execute(); 
-			$rows = $stm->fetch(PDO::FETCH_ASSOC);
+			$rows = $stm->fetch(PDO::FETCH_BOTH);
 			return $rows; 
 		}
 		catch(PDOException $e){
@@ -92,7 +92,7 @@ require_once 'Constantes.php';
 			$conn = self::conectar();
 			$stm = $conn->prepare($sql);		
 			$stm->execute(); 
-			$rows = $stm->fetchAll();
+			$rows = $stm->fetchAll(PDO::FETCH_BOTH);
 			$rows = count($rows);
 			if ($rows > 0) {
 				$result = true;
