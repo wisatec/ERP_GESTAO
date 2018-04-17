@@ -32,17 +32,17 @@ require_once 'Constantes.php';
 		self::$instance = null;
 	}
 	private static function ContarLinhas($sql){
-	try{
-		$conn = self::conectar();
-		$stm = $conn->prepare($sql);		
-		$stm->execute(); 
-		$rows = $stm->fetchAll();
-		$rows = count($rows);
-		return $rows; 
-	}
-	catch(PDOException $e){
-		echo "Erro : ".$e->getMessage();
-	}
+		try{
+			$conn = self::conectar();
+			$stm = $conn->prepare($sql);		
+			$stm->execute(); 
+			$rows = $stm->fetchAll();
+			$rows = count($rows);
+			return $rows; 
+		}
+		catch(PDOException $e){
+			echo "Erro : ".$e->getMessage();
+		}
 	}
 	private static function SelecionarTodos($sql){		
 		try{
