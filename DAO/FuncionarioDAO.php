@@ -29,7 +29,15 @@
 			$sql = "SELECT Rg FROM Funcionario f WHERE f.Rg LIKE '".$rg."'";
 			$result = self::sqlSelectCount($sql);
 			return $result;			
-		}			
+		}	
+		
+		static function PesquisaRegFuncDAO($reg){
+			$sql = "SELECT f.RegFunc FROM Funcionario f WHERE f.RegFunc LIKE '".$reg."'";
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}		
+		
+				
     }
     
 ?>

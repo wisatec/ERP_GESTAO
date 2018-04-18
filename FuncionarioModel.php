@@ -1,7 +1,7 @@
 <?php
    /**
-    * 
-    */
+* 
+*/
    class FuncionarioModel {
        
        function __construct($argument) {
@@ -18,6 +18,11 @@
 			return $result;										
 		}		
 			  
+		function PesquisaRegFunc(){
+			$result = FuncionarioDAO::PesquisaRegFuncDAO();
+			return $result;										
+		}	
+		
    }
    
     
