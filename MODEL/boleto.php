@@ -1,7 +1,5 @@
 <?php
-require_once 'Constantes.php';
-require_once 'Utilitarios.php';
-require_once 'Conexao.php';
+
 
 /**
  * classe principal
