@@ -18,9 +18,17 @@
     					FROM HistoricoFunc hf 
 						WHERE hf.IdHist = (SELECT MAX(IdHist) from HistoricoFunc)";
 			$result = self::sqlSelectOne($sql);
-			return $result;
-										
+			return $result;	
 		}
+		
+		function CalculaPorcSal($salario,$valor){
+			
+			$total = ($salario * $valor) / 100;
+			$SalReaj = $salario + $total;
+			return $SalReaj;
+			
+		}
+		
 	}
 	
 ?>
