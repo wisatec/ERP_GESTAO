@@ -1,5 +1,4 @@
 <?php
-include_once '../DAO/ClientesDAO.php';
     /**
      * 
      */
@@ -11,13 +10,11 @@ include_once '../DAO/ClientesDAO.php';
         }
     
 		function ExisteCPF($cnpj){
-			$Dao = new ClienteDAO();
-			$result = $Dao->ExisteCPFDAO($cnpj);
+			$result = ClienteDAO::ExisteCPFDAO($cnpj);
 			return $result;
 		}
 		function ExisteCPFUpdate($cnpj,$codigo){
-			$Dao = new ClienteDAO();
-			$result = $Dao->ExisteCPFDAOUpdate($cnpj, $codigo);
+			$result = ClienteDAO::ExisteCPFDAOUpdate($cnpj, $codigo);
 			return $result;
 		}
 	}

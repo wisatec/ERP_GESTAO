@@ -2,17 +2,15 @@
    /**
     * 
     */
-   class Funcionario extends Conexao {
+   class Funcionario {
        
        function __construct($argument) {
            
        }
 	   
-	  public function Idade($nova_data){
-	   	
-			$sql = "SELECT CONCAT(TIMESTAMPDIFF(YEAR,'". $nova_data."', NOW()),' anos') AS idade";
-			$result = self::sqlSelectOne($sql);
-			return $result;			
+	  function Idade($DtNasc){
+		$result = FuncionariosDAO::IdadeDAO($DtNasc);
+		return $result; 			
 	   }
    }
    

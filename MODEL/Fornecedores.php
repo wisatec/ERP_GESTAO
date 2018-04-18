@@ -1,23 +1,20 @@
 <?php
-include_once '../DAO/FornecedoresDAO.php';
 
     /**
      * 
      */
-    class Fornecedores extends Conexao {
+    class Fornecedores {
         
         function __construct($argument) {
             
         }
 		function PesquisaCnpj($cnpj) {
-			$Dao = new FornecedoresDAO();
-			$result = $Dao->PesquisaCnpjDAO($cnpj);
+			$result = FornecedoresDAO::PesquisaCnpjDAO($cnpj);
 			return $result;
 		}
 		
 		function PesquisaCnpjUpdate($cnpj,$id){
-			$Dao = new FornecedoresDAO();
-			$result = $Dao->PesquisaCnpjUpdateDAO($cnpj, $id);
+			$result = FornecedoresDAO::PesquisaCnpjUpdateDAO($cnpj, $id);
 			return $result;				
 		}	
 			
