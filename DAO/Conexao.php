@@ -1,5 +1,5 @@
 <?php
-include_once '/ERP_GESTAO/Constantes.php';
+require_once(dirname(__FILE__).'/ERP_GESTAO/Constantes.php') ;
 
  /**
  * classe responsável pela conexao

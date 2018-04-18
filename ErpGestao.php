@@ -1,17 +1,17 @@
 <?php
-	include_once 'Constantes.php';
-	include_once 'Css.php';
-	include_once 'MODEL/boleto.php';
-	include_once 'MODEL/Clientes.php';
-	include_once 'MODEL/Empresa.php';
-	include_once 'MODEL/Fornecedores.php';
-	include_once 'MODEL/Funcionario.php';
-	include_once 'MODEL/HistoricoFuncionario.php';
-	include_once 'DAO/Conexao.php';
-	include_once 'DAO/ClientesDAO.php';	
-	include_once 'DAO/FornecedoresDAO.php';
-	include_once 'DAO/FuncionarioDAO.php';
-	include_once 'DAO/HistoricoFuncionarioDAO.php';
+	require_once(dirname(__FILE__).'Constantes.php');
+	require_once(dirname(__FILE__).'Css.php');
+	require_once(dirname(__FILE__).'MODEL/boleto.php');
+	require_once(dirname(__FILE__).'MODEL/Clientes.php');
+	require_once(dirname(__FILE__).'MODEL/Empresa.php');
+	require_once(dirname(__FILE__).'MODEL/Fornecedores.php');
+	require_once(dirname(__FILE__).'MODEL/Funcionario.php');
+	require_once(dirname(__FILE__).'MODEL/HistoricoFuncionario.php');
+	require_once(dirname(__FILE__).'DAO/Conexao.php');
+	require_once(dirname(__FILE__).include_once 'DAO/ClientesDAO.php');	
+	require_once(dirname(__FILE__).include_once 'DAO/FornecedoresDAO.php');
+	require_once(dirname(__FILE__).include_once 'DAO/FuncionarioDAO.php');
+	require_once(dirname(__FILE__).include_once 'DAO/HistoricoFuncionarioDAO.php');
 	
     /**
      * Classe Utilitários 
