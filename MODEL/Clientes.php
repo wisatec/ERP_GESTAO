@@ -1,5 +1,4 @@
 <?php
-include_once 'ERP_GESTAO/DAO/ClientesDAO.php';
     /**
      * 
      */
