@@ -3,8 +3,8 @@
 	include_once 'Css.php';
 	
 	$directories = array(
-	            'DAO/',
-	            'MODEL/'
+	            '/DAO/',
+	            '/MODEL/'
 	);
 	foreach ($directories as $directory) {
 	    foreach(glob($directory . "*.php") as $class) {
