@@ -3,16 +3,7 @@
 	include_once 'Css.php';
 	include_once 'MODEL/Clientes.php';
 	include_once 'DAO/ClientesDAO.php';
-	
-	$directories = array(
-	            'DAO/',
-	            'MODEL/'
-	);
-	foreach ($directories as $directory) {
-	    foreach(glob($directory . "*.php") as $class) {
-	        include_once $class;
-	    }
-	}
+
 
     /**
      * Classe Utilitários 
