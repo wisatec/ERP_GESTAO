@@ -4,7 +4,7 @@
 /**
  * classe principal
  */
-abstract class boleto{
+abstract class BoletoModel{
 	//Variáveis	
 	protected $_CodBanco;
 	protected $_NBanco;

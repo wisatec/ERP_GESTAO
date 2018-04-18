@@ -2,7 +2,7 @@
     /**
      * 
      */
-    class Clientes {
+    class ClienteModel {
         
         function __construct($argument) {
 
