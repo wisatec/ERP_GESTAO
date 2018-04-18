@@ -1,5 +1,5 @@
 <?php
-include_once '../DAO/ClientesDAO.php';
+include_once 'DAO/ClientesDAO.php';
     /**
      * 
      */
