@@ -7,8 +7,8 @@
 	include_once 'MODEL/Fornecedores.php';
 	include_once 'MODEL/Funcionario.php';
 	include_once 'MODEL/HistoricoFuncionario.php';
-	include_once 'DAO/ClientesDAO.php';
 	include_once 'DAO/Conexao.php';
+	include_once 'DAO/ClientesDAO.php';	
 	include_once 'DAO/FornecedoresDAO.php';
 	include_once 'DAO/FuncionarioDAO.php';
 	include_once 'DAO/HistoricoFuncionarioDAO.php';
