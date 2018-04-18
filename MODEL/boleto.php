@@ -53,9 +53,6 @@ abstract class boleto{
 	public function getCodBanco(){
 		return $this->_CodBanco;
 	}
-	public function setPagador($CodBanco){
-		$this->_CodBanco = $CodBanco;
-	}
 	public function getNBanco(){
 		return $this->_NBanco;
 	}
