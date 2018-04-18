@@ -1,11 +1,10 @@
 <?php
 	include_once 'Constantes.php';
 	include_once 'Css.php';
-	include_once 'MODEL/Clientes.php';
 	
 	$directories = array(
-	            'DAO/',
-	            'MODEL/'
+	            ROOT_DIR.'DAO/',
+	            ROOT_DIR.'MODEL/'
 	);
 	foreach ($directories as $directory) {
 	    foreach(glob($directory . "*.php") as $class) {
