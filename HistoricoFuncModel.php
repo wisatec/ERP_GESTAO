@@ -22,6 +22,11 @@
 			
 		}
 		
+		function PesquisaRg(){
+			$result = HistoricoFuncDAO::PesquisaRgDAO();
+			return $result;										
+		}		
+		
 	}
 	
 ?>
