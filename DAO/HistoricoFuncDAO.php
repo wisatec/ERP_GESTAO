@@ -18,11 +18,7 @@
 			return $result;			
 		}
 		
-		static function PesquisaRgDAO($rg){
-			$sql = "SELECT Rg FROM Funcionario f WHERE f.Rg LIKE '".$rg."'";
-			$result = self::sqlSelectCount($sql);
-			return $result;			
-		}		
+	
     }
     
 ?>

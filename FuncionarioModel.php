@@ -12,6 +12,12 @@
 		$result = FuncionarioDAO::IdadeDAO($DtNasc);
 		return $result; 			
 	   }
+	  
+		function PesquisaRg(){
+			$result = FuncionarioDAO::PesquisaRgDAO();
+			return $result;										
+		}		
+			  
    }
    
     
