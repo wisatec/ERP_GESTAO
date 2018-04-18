@@ -1,6 +1,7 @@
 <?php
 	include_once 'Constantes.php';
 	include_once 'Css.php';
+	include_once 'Clientes.php';
 	
 	$directories = array(
 	            '/DAO/',
