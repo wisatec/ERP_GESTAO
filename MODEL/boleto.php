@@ -170,9 +170,6 @@ abstract class boleto{
 	public function getDtVencto(){
 		return $this->_DtVencto;
 	}
-	public function setBeneficiarioUf($DtVencto){
-		$this->_DtVencto = $DtVencto;
-	}
 	public function getDtDocumento(){
 		return $this->_DtDocumento;
 	}
