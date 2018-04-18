@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__).'/ERP_GESTAO/Constantes.php') ;
+require_once('/home/grupowis/public_html/scriptcase9/app/Projeto_ERP/_lib/libraries/grp/ERP_GESTAO/Constantes.php') ;
 
  /**
  * classe responsável pela conexao
