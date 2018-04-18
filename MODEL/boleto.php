@@ -215,9 +215,6 @@ abstract class boleto{
 	public function getEspecie(){
 		return $this->_Especie;
 	}
-	public function setUsoDoBanco($Especie){
-		$this->_Especie = $Especie;
-	}
 	public function getQuantidade(){
 		return $this->_Quantidade;
 	}
