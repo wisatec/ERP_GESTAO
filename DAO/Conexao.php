@@ -1,5 +1,5 @@
 <?php
-require_once '..\Constantes.php';
+include_once 'ERP_GESTAO/Constantes.php';
 
  /**
  * classe responsável pela conexao
