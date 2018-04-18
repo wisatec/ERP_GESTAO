@@ -5,6 +5,7 @@
 	require_once 'Fornecedores.php';
 	require_once 'Empresa.php';
 	require_once 'Funcionario.php';
+	require_once 'HistoricoFuncionario.php';
 	
     /**
      * Classe Utilitários 
