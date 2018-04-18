@@ -3,14 +3,14 @@
 	/**
 	 * 
 	 */
-	class HistoricoFuncionario {
+	class HistoricoFuncModel {
 		
 		function __construct($argument) {
 			
 		}
 		
 		function UltimoSalario(){
-			$result = HistoricoFuncionarioDao::UltimoSalarioDAO();
+			$result = HistoricoFuncDAO::UltimoSalarioDAO();
 			return $result;										
 		}
 		

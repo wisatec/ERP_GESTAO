@@ -1,17 +1,17 @@
 <?php
-	require_once(dirname(__FILE__).'/Constantes.php');
+	require_once(dirname(__FILE__).'/DAO/Constantes.php');
 	require_once(dirname(__FILE__).'/Css.php');
-	require_once(dirname(__FILE__).'/boleto.php');
-	require_once(dirname(__FILE__).'/Clientes.php');
-	require_once(dirname(__FILE__).'/Empresa.php');
-	require_once(dirname(__FILE__).'/Fornecedores.php');
-	require_once(dirname(__FILE__).'/Funcionario.php');
-	require_once(dirname(__FILE__).'/HistoricoFuncionario.php');
+	require_once(dirname(__FILE__).'/BoletoModel.php');
+	require_once(dirname(__FILE__).'/ClienteModel.php');
+	require_once(dirname(__FILE__).'/EmpresaModel.php');
+	require_once(dirname(__FILE__).'/FornecedorModel.php');
+	require_once(dirname(__FILE__).'/FuncionarioModel.php');
+	require_once(dirname(__FILE__).'/HistoricoFuncModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
-	require_once(dirname(__FILE__).'/DAO/ClientesDAO.php');	
-	require_once(dirname(__FILE__).'/DAO/FornecedoresDAO.php');
+	require_once(dirname(__FILE__).'/DAO/ClienteDAO.php');	
+	require_once(dirname(__FILE__).'/DAO/FornecedorDAO.php');
 	require_once(dirname(__FILE__).'/DAO/FuncionarioDAO.php');
-	require_once(dirname(__FILE__).'/DAO/HistoricoFuncionarioDAO.php');
+	require_once(dirname(__FILE__).'/DAO/HistoricoFuncDAO.php');
 	
     /**
      * Classe Utilitários 

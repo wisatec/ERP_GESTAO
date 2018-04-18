@@ -9,12 +9,12 @@
             
         }
 		function PesquisaCnpj($cnpj) {
-			//$result = FornecedoresDAO::PesquisaCnpjDAO($cnpj);
+			$result = FornecedorDAO::PesquisaCnpjDAO($cnpj);
 			return $result;
 		}
 		
 		function PesquisaCnpjUpdate($cnpj,$id){
-			//$result = FornecedoresDAO::PesquisaCnpjUpdateDAO($cnpj, $id);
+			$result = FornecedorDAO::PesquisaCnpjUpdateDAO($cnpj, $id);
 			return $result;				
 		}	
 			

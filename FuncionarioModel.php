@@ -9,7 +9,7 @@
        }
 	   
 	  function Idade($DtNasc){
-		//$result = FuncionariosDAO::IdadeDAO($DtNasc);
+		$result = FuncionarioDAO::IdadeDAO($DtNasc);
 		return $result; 			
 	   }
    }

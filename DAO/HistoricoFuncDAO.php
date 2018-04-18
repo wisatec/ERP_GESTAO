@@ -2,7 +2,7 @@
     /**
      * 
      */
-    class HistoricoFuncionarioDao extends Conexao {
+    class HistoricoFuncDAO extends Conexao {
         
         function __construct($argument) {
             
