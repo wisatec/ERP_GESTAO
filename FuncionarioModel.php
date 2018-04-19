@@ -13,13 +13,13 @@
 		return $result; 			
 	   }
 	  
-		function PesquisaRg(){
-			$result = FuncionarioDAO::PesquisaRgDAO();
+		function PesquisaRg($rg){
+			$result = FuncionarioDAO::PesquisaRgDAO($rg);
 			return $result;										
 		}		
 			  
-		function PesquisaRegFunc(){
-			$result = FuncionarioDAO::PesquisaRegFuncDAO();
+		function PesquisaRegFunc($reg){
+			$result = FuncionarioDAO::PesquisaRegFuncDAO($reg);
 			return $result;										
 		}	
 		
