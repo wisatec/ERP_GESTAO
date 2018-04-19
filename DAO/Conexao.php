@@ -36,7 +36,7 @@ require_once 'Constantes.php';
 			$conn = self::conectar();
 			$stm = $conn->prepare($sql);		
 			$stm->execute(); 
-			$rows = $stm->fetchAll(PDO :: FETCH_BOUND );
+			$rows = $stm->fetchAll(PDO::FETCH_BOUND);
 			$rows = count($rows);
 			return $rows; 
 		}
