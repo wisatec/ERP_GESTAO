@@ -4,11 +4,11 @@
 */
    class FuncionarioModel {
        
-       function __construct($argument) {
+        function __construct($argument) {
            
        }
 	   
-	  function Idade($DtNasc){
+	  	function Idade($DtNasc){
 		$result = FuncionarioDAO::IdadeDAO($DtNasc);
 		return $result; 			
 	   }
