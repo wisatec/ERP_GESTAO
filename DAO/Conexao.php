@@ -18,7 +18,7 @@ require_once 'Constantes.php';
 	private static function conectar(){
 		try{
 			if (self::$instance == null) {
-				self::$instance = new PDO(HOST,USER,PASS,array(PDO::ATTR_PERSISTENT => true,PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',));
+				self::$instance = new PDO(HOST,USER,PASS,array(PDO::ATTR_PERSISTENT => true,PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES latin1',));
               	self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               	self::$instance->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);	
 			}			

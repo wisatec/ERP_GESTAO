@@ -7,11 +7,13 @@
 	require_once(dirname(__FILE__).'/FornecedorModel.php');
 	require_once(dirname(__FILE__).'/FuncionarioModel.php');
 	require_once(dirname(__FILE__).'/HistoricoFuncModel.php');
+	require_once(dirname(__FILE__).'/ProdutoModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
 	require_once(dirname(__FILE__).'/DAO/ClienteDAO.php');	
 	require_once(dirname(__FILE__).'/DAO/FornecedorDAO.php');
 	require_once(dirname(__FILE__).'/DAO/FuncionarioDAO.php');
 	require_once(dirname(__FILE__).'/DAO/HistoricoFuncDAO.php');
+	require_once(dirname(__FILE__).'/DAO/ProdutoDAO.php');
 	
     /**
      * Classe Utilitários 
