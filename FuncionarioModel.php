@@ -38,28 +38,28 @@
 			return $result;										
 		}	
 		
-		function PesquisaRgUp($rg){
-			$result = FuncionarioDAO::PesquisaRgUpDAO($rg);
+		function PesquisaRgUp($rg,$id){
+			$result = FuncionarioDAO::PesquisaRgUpDAO($rg,$id);
 			return $result;										
 		}	
 		
-		function PesquisaRegFuncUp($reg){
-			$result = FuncionarioDAO::PesquisaRegFuncUpDAO($reg);
+		function PesquisaRegFuncUp($reg,$id){
+			$result = FuncionarioDAO::PesquisaRegFuncUpDAO($reg,$id);
 			return $result;										
 		}	
 
-		function PesquisaCpfFuncUp($cpf){
-			$result = FuncionarioDAO::PesquisaCpfUpDAO($cpf);
+		function PesquisaCpfFuncUp($cpf,$id){
+			$result = FuncionarioDAO::PesquisaCpfUpDAO($cpf,$id);
 			return $result;										
 		}	
 		
-		function PesquisaPisFuncUp($pis){
-			$result = FuncionarioDAO::PesquisaPisUpDAO($pis);
+		function PesquisaPisFuncUp($pis,$id){
+			$result = FuncionarioDAO::PesquisaPisUpDAO($pis,$id);
 			return $result;										
 		}	
 		
-		function PesquisaCltFuncUp($clt){
-			$result = FuncionarioDAO::PesquisaCltUpDAO($clt);
+		function PesquisaCltFuncUp($clt,$id){
+			$result = FuncionarioDAO::PesquisaCltUpDAO($clt,$id);
 			return $result;										
 		}												
    }
