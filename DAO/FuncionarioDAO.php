@@ -37,7 +37,24 @@
 			return $result;			
 		}		
 		
-				
+		static function PesquisaCpfDAO($cpf){
+			$sql = "select f.Cpf from sqlSelectCount f where f.Cpf LIKE '".$cpf."'";
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}
+		
+		static function PesquisaPisDAO($pis){
+			$sql = "select f.Pis from Funcionario f where f.Pis LIKE '".$pis."'";
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}	
+		
+		static function PesquisaCltDAO($clt){
+			$sql = "select f.Clt from Funcionario f where f.Clt LIKE '".$clt."'";
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}
+		
     }
     
 ?>

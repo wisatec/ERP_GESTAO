@@ -23,6 +23,20 @@
 			return $result;										
 		}	
 		
+		function PesquisaCpfFunc($cpf){
+			$result = FuncionarioDAO::PesquisaCpfDAO($cpf);
+			return $result;										
+		}		
+		
+		function PesquisaPisFunc($pis){
+			$result = FuncionarioDAO::PesquisaPisDAO($pis);
+			return $result;										
+		}	
+		
+		function PesquisaCltFunc($clt){
+			$result = FuncionarioDAO::PesquisaCltDAO($clt);
+			return $result;										
+		}			
    }
    
     
