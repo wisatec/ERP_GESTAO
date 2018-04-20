@@ -55,6 +55,35 @@
 			return $result;			
 		}
 		
+		static function PesquisaRgUpDAO($rg,$id){
+			$sql = "SELECT  f.Rg FROM Funcionario f WHERE f.Rg LIKE '".$rg."' and f.IdFuncionario != ".$id;
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}		
+		
+		static function PesquisaRegFuncUpDAO($reg,$id){
+			$sql = "SELECT  f.RegFunc FROM Funcionario f WHERE f.RegFunc LIKE '".$reg."' and f.IdFuncionario != ".$id;
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}		
+		
+		static function PesquisaCpfUpDAO($cpf,$id){
+			$sql = "SELECT  f.Cpf FROM Funcionario f WHERE f.Cpf LIKE '".$cpf."' and f.IdFuncionario != ".$id;
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}	
+		
+		static function PesquisaPisUpDAO($pis,$id){
+			$sql = "SELECT  f.Pis FROM Funcionario f WHERE f.Pis LIKE '".$pis."' and f.IdFuncionario != ".$id;
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}	
+		
+		static function PesquisaCltUpDAO($clt,$id){
+			$sql = "SELECT  f.Clt FROM Funcionario f WHERE f.Clt LIKE '".$clt."' and f.IdFuncionario != ".$id;
+			$result = self::sqlSelectCount($sql);
+			return $result;			
+		}				
     }
     
 ?>

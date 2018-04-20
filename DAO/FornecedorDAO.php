@@ -17,6 +17,7 @@
 			$result = self::sqlSelectCount($sql);
 			return $result;			
 		}
+		
     }
     
 ?>
