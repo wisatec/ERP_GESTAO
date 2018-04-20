@@ -38,7 +38,7 @@
 		}		
 		
 		static function PesquisaCpfDAO($cpf){
-			$sql = "select f.Cpf from sqlSelectCount f where f.Cpf LIKE '".$cpf."'";
+			$sql = "select f.Cpf from Funcionario f where f.Cpf LIKE '".$cpf."'";
 			$result = self::sqlSelectCount($sql);
 			return $result;			
 		}
