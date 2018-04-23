@@ -11,6 +11,6 @@
 			$result = ProdutoDAO::ObterDescrNCM($codNcm);
 			return $result;
 		}
-    }
+	}
     
 ?>
