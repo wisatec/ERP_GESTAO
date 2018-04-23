@@ -88,7 +88,7 @@
 			?>
 				<style type="text/css">
 					<? echo $nome; ?> {
-						heigth:<? echo $altura; ?>;
+						height:<? echo $altura; ?>;
 					}				
 				</style>
 			<?php
