@@ -9,8 +9,8 @@
         }
     	static function InserirCodEan($codProd,$codBarras){
     		$sql = "INSERT INTO ProdutoCodEan(CodEan,IdProduto)VALUES('".$codBarras."',".$codProd.")";
-			//$result  = self::sqlExec($sql);
-			return $sql;
+			$result  = self::sqlExec($sql);
+			return $result;
     	}
 	}
     
