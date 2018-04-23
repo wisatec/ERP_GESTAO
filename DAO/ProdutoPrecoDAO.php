@@ -10,7 +10,7 @@ class ProdutoPrecoDAO extends Conexao {
 	}
 	static function ObterPorcentagemDAO($idTabela)
 	{
-		$sql =  "";
+		$sql =  "SELECT tt.PercentLucro FROM TipoTabela tt WHERE tt.idTabela = ".$idTabela;
 		$result = self::sqlSelectOne($sql);
 		return $result;
 	}
