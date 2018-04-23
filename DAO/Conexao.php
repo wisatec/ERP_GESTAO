@@ -79,8 +79,8 @@ require_once 'Constantes.php';
 			$result = false;
 			$conn = self::conectar();
 			$stm = $conn->prepare($sql);		
-			$stm->execute(); 
-			return $stm; 
+			$result = $stm->execute(); 
+			return $result; 
 		}
 		catch(PDOException $e){
 			echo "Erro : ".$e->getMessage();
