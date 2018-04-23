@@ -11,7 +11,7 @@
     		$util = new Utilitarios();
 			$codBarras = $util->GerarCodBarrasEAN13();
     		$result = ProdutoCodEanDAO::InserirCodEan($codProd, $codBarras);
-			return $codBarras;
+			return $result;
     	}
 	}
     
