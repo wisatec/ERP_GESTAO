@@ -24,7 +24,15 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;				
-		} 			
+		} 
+		
+		static function CarregaTipoDAO($id){
+			
+			$sql = "SELECT pcd.idTipo FROM PropostaComercialDet pcd WHERE pcd.idPropostaDet =  ".$id;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;				
+		} 	
     }
     
 ?>
