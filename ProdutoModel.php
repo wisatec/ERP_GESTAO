@@ -16,7 +16,7 @@
 			return $result;			
 		}
 		function ObterDescricaoNcmCest($codNcm,$codNcmCest){
-			$result = ProdutoDAO::ObterDescrNcmCest($codNcm, $codCestNcm);
+			$result = ProdutoDAO::ObterDescrNcmCestDAO($codNcm, $codCestNcm);
 			return $result;
 		}
 	}
