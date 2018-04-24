@@ -10,6 +10,7 @@
 	require_once(dirname(__FILE__).'/ProdutoModel.php');
 	require_once(dirname(__FILE__).'/ProdutoCodEanModel.php');
 	require_once(dirname(__FILE__).'/ProdutoPrecoModel.php');
+	require_once(dirname(__FILE__).'/PropostaComercialModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
 	require_once(dirname(__FILE__).'/DAO/ClienteDAO.php');	
 	require_once(dirname(__FILE__).'/DAO/FornecedorDAO.php');
@@ -18,6 +19,7 @@
 	require_once(dirname(__FILE__).'/DAO/ProdutoDAO.php');
 	require_once(dirname(__FILE__).'/DAO/ProdutoCodEanDAO.php');
 	require_once(dirname(__FILE__).'/DAO/ProdutoPrecoDAO.php');
+	require_once(dirname(__FILE__).'/DAO/PropostaComercialDAO.php');
     /**
      * Classe Utilitários 
      */
