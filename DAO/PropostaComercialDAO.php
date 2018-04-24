@@ -18,7 +18,7 @@
 		
 		static function CarregaProdutoDAO($idprod){
 			
-			$sql = "SELECT p.IdProduto,p.xProd,u.unidade_sigla FROM Produto p 
+			$sql = "SELECT p.IdProduto,p.xProd,p.UnidadeVenda FROM Produto p 
   						INNER JOIN unidade u ON p.UnidadeVenda = u.unidade_id
  						WHERE p.IdProduto = ".$idprod;
 			$result = self::sqlSelectOne($sql);
