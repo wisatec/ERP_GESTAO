@@ -14,6 +14,11 @@
 			return $result;
 			
 		}
+		function CarregaProduto($idprod){
+			$result =  PropostaComercialDAO::CarregaProdutoDAO($idprod);
+			return $result;
+			
+		}		
 	}
 	
 ?>

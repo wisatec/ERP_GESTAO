@@ -14,7 +14,15 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;				
-		} 		
+		} 	
+		
+		static function CarregaProdutoDAO($idprod){
+			
+			$sql = "SELECT p.IdProduto,p.xProd FROM Produto p WHERE p.IdProduto = ".$idprod;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;				
+		} 			
     }
     
 ?>
