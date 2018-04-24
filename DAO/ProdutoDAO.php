@@ -18,6 +18,12 @@
 			self::close();
 			return $result;
 		}
-    }
+    	static function ObterDescrNcmCest($codNcm,$codCestNcm){
+    		$sql = "SELECT nc.DescrCest FROM NcmCest nc WHERE nc.CodNcm = '".$codNcm."' AND nc.Cest = '".$codCestNcm."'";
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+    	}
+	}
     
 ?>

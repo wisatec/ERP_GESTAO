@@ -15,6 +15,10 @@
 			$result = ProdutoDAO::ObterDescrTIPIDAO($codNcm, $codEx);
 			return $result;			
 		}
+		function ObterDescricaoNcmCest($codNcm,$codNcmCest){
+			$result = ProdutoDAO::ObterDescrNcmCest($codNcm, $codCestNcm);
+			return $result;
+		}
 	}
     
 ?>
