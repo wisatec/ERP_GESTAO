@@ -20,8 +20,8 @@
 		}
     	static function ObterDescrNcmCestDAO($codNcm,$codCestNcm){
     		$sql = "SELECT nc.DescrCest FROM NcmCest nc WHERE nc.CodNcm = '".$codNcm."' AND nc.Cest = '".$codCestNcm."'";
-			//$result = self::sqlSelectOne($sql);
-			return $sql;
+			$result = self::sqlSelectOne($sql);
+			return $result;
     	}
 	}
     
