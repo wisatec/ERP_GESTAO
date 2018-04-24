@@ -13,7 +13,7 @@
 			return $result;			
 		}
 		static function ObterDescrTIPIDAO($codNcm,$codEx){
-			$sql = "SELECT te.DescrEx FROM TipiEx te WHERE te.CodNcm = '.$codNcm.' AND te.CodEx = '.$codEx.'";
+			$sql = "SELECT te.DescrEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."' AND te.CodEx = '".$codEx."'";
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
