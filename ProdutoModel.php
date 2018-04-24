@@ -11,6 +11,10 @@
 			$result = ProdutoDAO::ObterDescrNCM($codNcm);
 			return $result;
 		}
+		function ObterDescricaoExTIPI($codNcm,$codEx){
+			$result = ProdutoDAO::ObterDescrTIPIDAO($codNcm, $codEx);
+			return $result;			
+		}
 	}
     
 ?>
