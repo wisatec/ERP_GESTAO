@@ -21,7 +21,7 @@
 		}	
 		
 		function CarregaTipo($idprod){
-			$result =  PropostaComercialDAO::CarregaTipoDAO($id);
+			$result =  PropostaComercialDAO::CarregaTipoDAO($idprod);
 			return $result;
 			
 		}				
