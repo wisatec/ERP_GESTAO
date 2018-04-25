@@ -19,6 +19,10 @@
 			$result = ProdutoDAO::ObterDescrNcmCestDAO($codNcm, $codNcmCest);
 			return $result;
 		}
+		function ObterDescricaoOrigem($codOrigem){
+			$result = ProdutoDAO::ObterDescrOrigemDAO($codOrigem);
+			return $result;			
+		}
 	}
     
 ?>

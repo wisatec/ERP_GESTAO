@@ -23,6 +23,12 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;
     	}
+		static function ObterDescrOrigemDAO($codOrigem){
+			$sql = "SELECT po.OrigemDescr FROM ProdutoOrigem po WHERE po.idOrigem = ".$codOrigem;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+		}
 	}
     
 ?>
