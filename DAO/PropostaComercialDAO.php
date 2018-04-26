@@ -32,7 +32,25 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;				
-		} 	
+		} 
+		
+		static function CarregaPrecoServicoDAO($idserv,$idtab){
+			
+			$sql = "SELECT sp.IdServico,sp.idTabela,sp.PercentLucro,sp.VrServico FROM ServicoPreco sp 
+						WHERE sp.IdServico = ".$idserv."  AND sp.idTabela =  ".$idtab;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;				
+		} 
+		
+		static function CarregaPrecoProdutoDAO($idprod,$idtab){
+			
+			$sql = "SELECT pp.idPreco,pp.idTabela,pp.IdProduto,pp.PercentLucro,pp.VrVenda FROM ProdutoPreco pp
+  						WHERE pp.IdProduto = ".$idprod." AND pp.idTabela = ".$idtab;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;				
+		} 		
     }
     
 ?>

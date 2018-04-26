@@ -24,7 +24,19 @@
 			$result =  PropostaComercialDAO::CarregaTipoDAO($idprod);
 			return $result;
 			
-		}				
+		}	
+		
+		function CarregaPrecoServico($idserv,$idtab){
+			$result =  PropostaComercialDAO::CarregaPrecoServicoDAO($idserv, $idtab);
+			return $result;
+			
+		}		
+		
+		function CarregaPrecoProduto($idprod,$idtab){
+			$result =  PropostaComercialDAO::CarregaPrecoProdutoDAO($idprod, $idtab);
+			return $result;
+			
+		}					
 	}
 	
 ?>
