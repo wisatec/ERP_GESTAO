@@ -36,7 +36,12 @@
 			$result =  PropostaComercialDAO::CarregaPrecoProdutoDAO($idprod, $idtab);
 			return $result;
 			
-		}					
+		}	
+		
+		function CalculaItem($qtde,$vrunit){
+			$subtotal = $qtde * $vrunit;
+			return $subtotal;
+		}				
 	}
 	
 ?>
