@@ -41,7 +41,13 @@
 		function CalculaItem($qtde,$vrunit){
 			$subtotal = $qtde * $vrunit;
 			return $subtotal;
-		}				
+		}	
+		
+		function SomaProposta($id){
+			$result =  PropostaComercialDAO::SomaPropostaDAO($id);
+			return $result;			
+			
+		}			
 	}
 	
 ?>

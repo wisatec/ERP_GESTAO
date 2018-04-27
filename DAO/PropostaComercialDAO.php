@@ -50,7 +50,16 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;				
-		} 		
+		} 	
+		
+		static function SomaPropostaDAO($id){
+			
+			$sql = "SELECT SUM(pcd.VrTotalUnit) AS subtotal,SUM(pcd.vrTotalGeral) AS totalgeral 
+						FROM PropostaComercialDet pcd WHERE pcd.IdProposta = ".$id;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;				
+		} 				
     }
     
 ?>
