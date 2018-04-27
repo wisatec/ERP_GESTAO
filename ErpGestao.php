@@ -7,7 +7,7 @@
 	require_once(dirname(__FILE__).'/FornecedorModel.php');
 	require_once(dirname(__FILE__).'/FuncionarioModel.php');
 	require_once(dirname(__FILE__).'/HistoricoFuncModel.php');
-	require_once(dirname(__FILE__).'/ProdutoModel.php');
+	require_once(dirname(__FILE__).'/ItemModel.php');
 	require_once(dirname(__FILE__).'/ProdutoCodEanModel.php');
 	require_once(dirname(__FILE__).'/ProdutoPrecoModel.php');
 	require_once(dirname(__FILE__).'/PropostaComercialModel.php');
@@ -16,7 +16,7 @@
 	require_once(dirname(__FILE__).'/DAO/FornecedorDAO.php');
 	require_once(dirname(__FILE__).'/DAO/FuncionarioDAO.php');
 	require_once(dirname(__FILE__).'/DAO/HistoricoFuncDAO.php');
-	require_once(dirname(__FILE__).'/DAO/ProdutoDAO.php');
+	require_once(dirname(__FILE__).'/DAO/ItemDAO.php');
 	require_once(dirname(__FILE__).'/DAO/ProdutoCodEanDAO.php');
 	require_once(dirname(__FILE__).'/DAO/ProdutoPrecoDAO.php');
 	require_once(dirname(__FILE__).'/DAO/PropostaComercialDAO.php');

@@ -2,7 +2,7 @@
     /**
      * 
      */
-    class ProdutoModel {
+    class ItemModel {
         
         function __construct($argument) {
             
