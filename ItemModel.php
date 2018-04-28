@@ -59,6 +59,12 @@
 			$result = ItemDAO::ObterValorLucroDAO($iditem, $perclucro);
 			return $result;			
 		}			
+    	function GerarCodEan($codProd){
+    		$util = new Utilitarios();
+			$codBarras = $util->GerarCodBarrasEAN13();
+    		$result = ProdutoCodEanDAO::InserirCodEan($codProd, $codBarras);
+			return $result;
+    	}	
 	}
     
 ?>
