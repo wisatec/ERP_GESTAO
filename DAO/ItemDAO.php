@@ -29,6 +29,18 @@
 			self::close();
 			return $result;
 		}
+		static function ObterPercServicoDAO($idtabela){
+			$sql = "SELECT tt.PercentLucro FROM TipoTabela tt WHERE tt.idTipoItem = 2 AND tt.idTabela = ".$idtabela;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+		}	
+		static function ObterValorLucroDAO($iditem,$perclucro){
+			$sql = "SELECT i.PrecoLiq, ((i.PrecoLiq * $perclucro) / 100 + i.PrecoLiq) AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+		}				
 	}
     
 ?>

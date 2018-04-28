@@ -8,19 +8,19 @@
             
         }
 		function ObterDescricaoNcm($codNcm){
-			$result = ProdutoDAO::ObterDescrNCM($codNcm);
+			$result = ItemDAO::ObterDescrNCM($codNcm);
 			return $result;
 		}
 		function ObterDescricaoExTIPI($codNcm,$codEx){
-			$result = ProdutoDAO::ObterDescrTIPIDAO($codNcm, $codEx);
+			$result = ItemDAO::ObterDescrTIPIDAO($codNcm, $codEx);
 			return $result;			
 		}
 		function ObterDescricaoNcmCest($codNcm,$codNcmCest){
-			$result = ProdutoDAO::ObterDescrNcmCestDAO($codNcm, $codNcmCest);
+			$result = ItemDAO::ObterDescrNcmCestDAO($codNcm, $codNcmCest);
 			return $result;
 		}
 		function ObterDescricaoOrigem($codOrigem){
-			$result = ProdutoDAO::ObterDescrOrigemDAO($codOrigem);
+			$result = ItemDAO::ObterDescrOrigemDAO($codOrigem);
 			return $result;			
 		}
 		function CalculaDescontoReal($vrbruto,$vrperc){
@@ -30,7 +30,15 @@
 		function CalculaDescontoPerc($vrbruto,$vrreal){
 			$valorperc = (100 * $vrreal) / $vrbruto;
 			return $valorperc;
-		}		
+		}	
+		function ObterPercServicoDAO($idtabela){
+			$result = ItemDAO::ObterPercServicoDAO($idtabela);
+			return $result;			
+		}	
+		function ObterValorLucroDAO($iditem, $perclucro){
+			$result = ItemDAO::ObterValorLucroDAO($iditem, $perclucro);
+			return $result;			
+		}			
 	}
     
 ?>
