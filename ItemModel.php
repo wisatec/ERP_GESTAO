@@ -11,6 +11,10 @@
 			$result = ItemDAO::ObterDescrNCM($codNcm);
 			return $result;
 		}
+		function ExisteNcm($codNcm){
+			$result = ItemDAO::ExisteNcmDAO($codNcm);
+			return $result;
+		}
 		function ObterDescricaoExTIPI($codNcm,$codEx){
 			$result = ItemDAO::ObterDescrTIPIDAO($codNcm, $codEx);
 			return $result;			
