@@ -25,11 +25,11 @@
 		}
 		function CalculaDescontoReal($vrbruto,$vrperc){
 			$valorreal = ($vrbruto * $vrperc) / 100;
-			return $valor;
+			return $valorreal;
 		}
 		function CalculaDescontoPerc($vrbruto,$vrreal){
 			$valorperc = ($vrbruto * $vrreal) / 100;
-			return $valor;
+			return $valorperc;
 		}		
 	}
     
