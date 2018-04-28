@@ -41,7 +41,7 @@
 			return $result;
 		}	
 		static function ObterValorLucroDAO($iditem,$perclucro){
-			$sql = "SELECT i.PrecoLiq, ((i.PrecoLiq * $perclucro) / 100 + i.PrecoLiq) AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
+			$sql = "SELECT i.PrecoBruto, ((i.PrecoBruto * $perclucro) / 100 + i.PrecoBruto) AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
