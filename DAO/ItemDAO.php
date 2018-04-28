@@ -7,7 +7,7 @@
         function __construct($argument) {
             
         }
-		static function ObterDescrNCM($codNcm){
+		static function ObterDescrNCMDAO($codNcm){
 			$sql = "SELECT  n.DescrNcm AS DESCRICAO FROM Ncm n WHERE n.CodNcm = '".$codNcm."'";
 			$result = self::sqlSelectOne($sql);
 			return $result;			
@@ -15,6 +15,7 @@
 		static function ExisteNcmDAO($codNcm){
 			$sql = "SELECT  n.DescrNcm AS DESCRICAO FROM Ncm n WHERE n.CodNcm = '".$codNcm."'";
 			$result = self::sqlRecordBit($sql);
+			self::close();
 			return $result;
 		}
 		static function ObterDescrTIPIDAO($codNcm,$codEx){
@@ -46,6 +47,30 @@
 			self::close();
 			return $result;
 		}				
-	}
+		static function ExisteExTipiDAO($codNcm){
+			$sql= "SELECT te.CodEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."'";
+			$result = self::sqlRecordBit($sql);
+			self::close();
+			return $result;
+		}
+		static function ValidaCodExDAO($codNcm,$codEx){
+			$sql= "SELECT te.DescrEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."' AND te.CodEx = '".$codEx."'";
+			$result = self::sqlRecordBit($sql);
+			self::close();
+			return $result;
+		}
+		static function ExisteCestDAO($codNcm){
+			$sql= "SELECT nc.Cest FROM NcmCest nc WHERE nc.CodNcm = '".$codNcm."'";
+			$result = self::sqlRecordBit($sql);
+			self::close();
+			return $result;			
+		}
+		static function ValidaCodCestDAO($codNcm,$codCest){
+			$sql= "SELECT nc.Cest FROM NcmCest nc WHERE nc.CodNcm = '".$codNcm."' AND nc.Cest = '".$codCest."'";
+			$result = self::sqlRecordBit($sql);
+			self::close();
+			return $result;
+		}
+}
     
 ?>

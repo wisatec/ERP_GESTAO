@@ -8,16 +8,32 @@
             
         }
 		function ObterDescricaoNcm($codNcm){
-			$result = ItemDAO::ObterDescrNCM($codNcm);
+			$result = ItemDAO::ObterDescrNCMDAO($codNcm);
 			return $result;
 		}
 		function ExisteNcm($codNcm){
 			$result = ItemDAO::ExisteNcmDAO($codNcm);
 			return $result;
 		}
+		function ExisteExTipi($codNcm){
+			$result = ItemDAO::ExisteExTipiDAO($codNcm);
+			return $result;
+		}
+		function ValidaCodEx($codNcm,$codEx){
+			$result = ItemDAO::ValidaCodExDAO($codNcm, $codEx);
+			return $result;
+		}
 		function ObterDescricaoExTIPI($codNcm,$codEx){
 			$result = ItemDAO::ObterDescrTIPIDAO($codNcm, $codEx);
 			return $result;			
+		}
+		function ExisteCest($codNcm){
+			$result = ItemDAO::ExisteCestDAO($codNcm);
+			return $result;
+		}
+		function ValidaCodCest($codNcm,$codCest){
+			$result = ItemDAO::ValidaCodCestDAO($codNcm, $codCest);
+			return $result;
 		}
 		function ObterDescricaoNcmCest($codNcm,$codNcmCest){
 			$result = ItemDAO::ObterDescrNcmCestDAO($codNcm, $codNcmCest);
