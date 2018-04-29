@@ -36,11 +36,11 @@
 			$pares = array(0,2,4,6,8,10);
 			
 			$bloco1 = rand(0, 9999);
-			$bloco1 = lpad($bloco1,4,0);
+			$bloco1 = str_pad($bloco1,4, '0', STR_PAD_LEFT);;
 			$bloco2 = rand(0, 9999);
-			$bloco2 = lpad($bloco2,4,0);
+			$bloco2 = str_pad($bloco2,4, '0', STR_PAD_LEFT);;
 			$bloco3 = rand(0, 9999);
-			$bloco3 = lpad($bloco3,4,0);
+			$bloco3 = str_pad($bloco3,4, '0', STR_PAD_LEFT);;
 			$somaPares = 0;
 			$somaImpares = 0;
 			
