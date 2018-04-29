@@ -35,9 +35,9 @@
 			$impares = array(1,3,5,7,9,11);
 			$pares = array(0,2,4,6,8,10);
 			
-			$bloco1 = rand(0, 9999);
-			$bloco2 = rand(0, 9999);
-			$bloco3 = rand(0, 9999);
+			$bloco1 = lpad(rand(0, 9999),4,0);
+			$bloco2 = lpad(rand(0, 9999),4,0);
+			$bloco3 = lpad(rand(0, 9999),4,0);
 			$somaPares = 0;
 			$somaImpares = 0;
 			
