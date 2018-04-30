@@ -16,6 +16,16 @@
 			$sql =  "SELECT f.Razao FROM Fornecedor f WHERE f.IdFornecedor = ".$cod;				
 			$result = self::sqlSelectOne($sql);
 			return $result;
+		}
+		static function ExisteFornecedorDAO($cod){
+			$sql =  "SELECT f.idFornecedor FROM Fornecedor f WHERE f.IdFornecedor = ".$cod;				
+			$result = self::sqlRecordBit($sql);
+			return $result;			
+		}
+		static function ExisteEmpresaDAO($cod){
+			$sql =  "SELECT e.IdEmpresa FROM Empresa e WHERE e.IdEmpresa =  ".$cod;				
+			$result = self::sqlRecordBit($sql);
+			return $result;			
 		}		
     }
     

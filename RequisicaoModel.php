@@ -15,6 +15,14 @@
 			$result = RequisicaoDAO::ObterDescrFornecedorDAO($cod);
 			return $result;
 		}
+		function ExisteFornecedor($cod){
+			$result = RequisicaoDAO::ExisteFornecedorDAO($cod);
+			return $result;
+		}
+		function ExisteEmpresa($cod){
+			$result = RequisicaoDAO::ExisteEmpresaDAO($cod);
+			return $result;
+		}
     }
     
 ?>
