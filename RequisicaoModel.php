@@ -11,7 +11,7 @@
 			$result = RequisicaoDAO::ObterDescrEmpresaDAO($cod);
 			return $result;
 		}
-		function ObterDescrFornecedor(){
+		function ObterDescrFornecedor($cod){
 			$result = RequisicaoDAO::ObterDescrFornecedorDAO($cod);
 			return $result;
 		}
