@@ -51,8 +51,8 @@
 			$valorperc = (100 * $vrreal) / $vrbruto;
 			return $valorperc;
 		}	
-		function ObterPercServicoDAO($idtabela){
-			$result = ItemDAO::ObterPercServicoDAO($idtabela);
+		function ObterPercLucroTabela($idtabela){
+			$result = ItemDAO::ObterPercLucroTabelaDAO($idtabela);
 			return $result;			
 		}	
 		function ObterValorLucroDAO($iditem, $perclucro){

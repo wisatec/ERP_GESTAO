@@ -35,8 +35,8 @@
 			self::close();
 			return $result;
 		}
-		static function ObterPercServicoDAO($idtabela){
-			$sql = "SELECT tt.PercentLucro FROM TipoTabela tt WHERE tt.idTipoItem = 2 AND tt.idTabela = ".$idtabela;
+		static function ObterPercLucroTabelaDAO($idtabela){
+			$sql = "SELECT tt.PercentLucro FROM TipoTabela tt WHERE tt.idTabela = ".$idtabela;
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
