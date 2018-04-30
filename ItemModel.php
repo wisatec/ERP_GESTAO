@@ -54,11 +54,7 @@
 		function ObterPercLucroTabela($idtabela){
 			$result = ItemDAO::ObterPercLucroTabelaDAO($idtabela);
 			return $result;			
-		}	
-		function ObterValorLucroDAO($iditem, $perclucro){
-			$result = ItemDAO::ObterValorLucroDAO($iditem, $perclucro);
-			return $result;			
-		}			
+		}				
     	function GerarCodEan($codProd){
     		$util = new Utilitarios();
 			$codBarras = $util->GerarCodBarrasEAN13();
