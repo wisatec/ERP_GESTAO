@@ -8,6 +8,7 @@
 	require_once(dirname(__FILE__).'/FuncionarioModel.php');
 	require_once(dirname(__FILE__).'/HistoricoFuncModel.php');
 	require_once(dirname(__FILE__).'/ItemModel.php');
+	require_once(dirname(__FILE__).'/RequisicaoModel.php');
 	require_once(dirname(__FILE__).'/ProdutoPrecoModel.php');
 	require_once(dirname(__FILE__).'/PropostaComercialModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
@@ -18,6 +19,7 @@
 	require_once(dirname(__FILE__).'/DAO/ItemDAO.php');
 	require_once(dirname(__FILE__).'/DAO/ProdutoPrecoDAO.php');
 	require_once(dirname(__FILE__).'/DAO/PropostaComercialDAO.php');
+	require_once(dirname(__FILE__).'/DAO/RequisicaoDAO.php');
     /**
      * Classe Utilitários 
      */

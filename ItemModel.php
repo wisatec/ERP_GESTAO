@@ -56,6 +56,7 @@
 			return $result;			
 		}	
 		
+	
     	function GerarCodEan($codProd){
     		$util = new Utilitarios();
 			$codBarras = $util->GerarCodBarrasEAN13();
