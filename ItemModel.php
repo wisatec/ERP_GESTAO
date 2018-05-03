@@ -56,7 +56,7 @@
 			return $result;			
 		}	
 	
-		function ObterValorLucroDAO($iditem, $perclucro){
+		function ObterValorLucro($iditem, $perclucro){
 			$result = ItemDAO::ObterValorLucroDAO($iditem, $perclucro);
 			return $result;			
 		}			
