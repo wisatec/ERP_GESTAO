@@ -23,6 +23,14 @@
 			$result = RequisicaoDAO::ExisteEmpresaDAO($cod);
 			return $result;
 		}
+		function ExisteMarca($cod){
+			$result = RequisicaoDAO::ExisteMarcaDAO($cod);
+			return $result;
+		}
+		function ObterDescrMarca($cod){
+			$result = RequisicaoDAO::ObterDescrMarcaDAO($cod);
+			return $result;
+		}		
     }
     
 ?>

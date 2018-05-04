@@ -26,7 +26,17 @@
 			$sql =  "SELECT e.IdEmpresa FROM Empresa e WHERE e.IdEmpresa =  ".$cod;				
 			$result = self::sqlRecordBit($sql);
 			return $result;			
-		}		
+		}
+		static function ExisteMarcaDAO($cod){
+			$sql =  "SELECT m.idMarca FROM Marca m WHERE m.idMarca =  ".$cod;				
+			$result = self::sqlRecordBit($sql);
+			return $result;			
+		}
+		static function ObterDescrMarcaDAO($cod){
+			$sql =  "SELECT m.DescrMarca FROM Marca m WHERE m.idMarca =  ".$cod;				
+			$result = self::sqlSelectOne($sql);
+			return $result;
+		}			
     }
     
 ?>
