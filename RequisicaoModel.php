@@ -38,6 +38,14 @@
 		function ObterDescrItem($cod){
 			$result = RequisicaoDAO::ObterDescrItemDAO($cod);
 			return $result;
+		}
+		function ObterTotalRequisicao($idReq){
+			$result = RequisicaoDAO::ObterTotalRequisicaoDAO($idReq);
+			return $result;
+		}
+		function AtualizarTotalRequisicao($idReq,$vrTotal){
+			$result = RequisicaoDAO::AtualizarTotalRequisicaoDAO($idReq, $vrTotal);
+			return $result;
 		}		
     }
     
