@@ -48,7 +48,11 @@
 			return $result;
 		}
 		static function ObterTotalRequisicaoDAO($idReq){
-			$sql =  "SELECT SUM(rcd.VrTotalUnit) AS total FROM RequisicaoCompraDet rcd WHERE rcd.IdRc = ".$idReq;				
+			$sql =  "SELECT (CASE 
+         						WHEN SUM(rcd.VrTotalUnit) IS NULL  THEN 0
+         						ELSE SUM(rcd.VrTotalUnit)
+       						END) AS total 
+    						FROM RequisicaoCompraDet rcd WHERE rcd.IdRc = ".$idReq;				
 			$result = self::sqlSelectOne($sql);
 			return $result;
 		}
