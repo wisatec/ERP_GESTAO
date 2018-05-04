@@ -43,7 +43,7 @@
 			return $result;			
 		}    
 		static function ObterDescrItemDAO($cod){
-			$sql =  "SELECT i.IdItem,i.cProd , i.xProd , i.idTipoItem FROM Item i WHERE i.IdItem = ".$cod;				
+			$sql =  "SELECT i.IdItem,i.cProd , i.xProd , i.idTipoItem , i.UnidadeVenda FROM Item i WHERE i.IdItem = ".$cod;				
 			$result = self::sqlSelectOne($sql);
 			return $result;
 		}
