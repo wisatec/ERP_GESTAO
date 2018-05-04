@@ -47,6 +47,16 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;
 		}
+		static function ObterTotalRequisicaoDAO($idReq){
+			$sql =  "SELECT SUM(rcd.VrTotalUnit) AS total FROM RequisicaoCompraDet rcd WHERE rcd.IdRc = ".$idReq;				
+			$result = self::sqlSelectOne($sql);
+			return $result;
 		}
+		static function AtualizarTotalRequisicaoDAO($idReq,$vrTotal){
+			$sql = "UPDATE RequisicaoCompra set TotalRc = ".$vrTotal." WHERE IdRc = ".$idReq;
+			$result = self::sqlExec($sql);
+			return $result;
+		}
+}
     
 ?>
