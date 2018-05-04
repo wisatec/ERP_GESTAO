@@ -48,7 +48,7 @@
 			return $result;
 		}
 		static function ObterTotalRequisicaoDAO($idReq){
-			$sql =  "SELECT (CASE 
+			$sql = "SELECT (CASE 
          						WHEN SUM(rcd.VrTotalUnit) IS NULL  THEN 0
          						ELSE SUM(rcd.VrTotalUnit)
        						END) AS total 
