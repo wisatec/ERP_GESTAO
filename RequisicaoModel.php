@@ -30,6 +30,14 @@
 		function ObterDescrMarca($cod){
 			$result = RequisicaoDAO::ObterDescrMarcaDAO($cod);
 			return $result;
+		}
+		function ExisteItem($cod){
+			$result = RequisicaoDAO::ExisteItemDAO($cod);
+			return $result;
+		}
+		function ObterDescrItem($cod){
+			$result = RequisicaoDAO::ObterDescrItemDAO($cod);
+			return $result;
 		}		
     }
     

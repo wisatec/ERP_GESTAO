@@ -37,6 +37,16 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;
 		}			
-    }
+		static function ExisteItemDAO($cod){
+			$sql =  "SELECT i.IdItem FROM Item i WHERE i.IdItem =  ".$cod;				
+			$result = self::sqlRecordBit($sql);
+			return $result;			
+		}    
+		static function ObterDescrItemDAO($cod){
+			$sql =  "SELECT i.IdItem,i.cProd , i.xProd , i.idTipoItem FROM Item i WHERE i.IdItem = ".$cod;				
+			$result = self::sqlSelectOne($sql);
+			return $result;
+		}
+		}
     
 ?>
