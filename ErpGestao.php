@@ -61,7 +61,13 @@
 			return $codigo;
 			
 		}		
-    }
+    	function CalcularValorTotal($qtde , $vrUnit){
+    		$vrTotal = ($qtde * $vrUnit);
+			return $vrTotal;
+    	}
+	
+	
+	}
 
 
 
