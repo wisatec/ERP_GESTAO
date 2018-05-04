@@ -46,7 +46,15 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
-		}				
+		}	
+		
+		static function CalculaValorItemDAO($iditem,$perclucro,$qtde){
+			$sql = "SELECT i.PrecoBruto, ((i.PrecoBruto * ".$perclucro.") / 100 + i.PrecoBruto) * ".$qtde.") AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+		}	
+							
 		static function ExisteExTipiDAO($codNcm){
 			$sql= "SELECT te.CodEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."'";
 			$result = self::sqlRecordBit($sql);
