@@ -49,7 +49,7 @@
 		}	
 		
 		static function CalculaValorItemDAO($iditem,$perclucro,$qtde){
-			$sql = "SELECT i.PrecoBruto, (((i.PrecoBruto * ".$perclucro.") / 100 + i.PrecoBruto) * ".$qtde.") AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
+			$sql = "SELECT i.PrecoBruto, (((i.PrecoBruto * ".$perclucro.") / 100 ) * ".$qtde.") AS vrcomlucro FROM Item i WHERE i.IdItem = ".$iditem;
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
