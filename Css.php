@@ -93,6 +93,25 @@
 				</style>
 			<?php
 		}    
+		function AjustarLabelGrid($padTB,$padLR,$FontSize,$BorderSize,$FontBold,$FontColor,$BorderColor){
+			?>
+				<style type="text/css">
+					.scGridLabelFont {
+					    color: $FontColor;
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
+					    font-weight: <? echo $FontBold; ?>;
+					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
+					    text-decoration: none;
+					    vertical-align: middle;
+					    border-color: <? echo $BorderColor; ?>;
+					    border-style: solid;
+					    border-width: <? echo $BorderSize; ?>;
+					}				
+				</style>
+			<?php
+			
+		}
 }
     
 ?>
