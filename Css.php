@@ -107,6 +107,20 @@
 					    border-color: <? echo $BorderColor; ?>;
 					    border-style: solid;
 					    border-width: <? echo $BorderSize; ?>;
+					}
+					.scFormLabelOddMult {
+					    background-color: #D3DBD3;
+					    background-image: none;
+					    border-color: <? echo $BorderColor; ?>;
+					    border-style: solid;
+					    border-width: <? echo $BorderSize; ?>;
+					    color: <? echo $FontColor; ?>
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
+					    font-weight: <? echo $FontBold; ?>;
+					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
+					    text-decoration: none;
+					    vertical-align: middle;
 					}				
 				</style>
 			<?php
@@ -116,7 +130,7 @@
 			?>
 				<style type="text/css">
 					.scGridFieldOddFont {
-					    color: <? echo $FontColor; ?>
+					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    font-weight: <? echo $FontBold; ?>;
@@ -124,7 +138,21 @@
 					    text-decoration: none;
 					    border-color: <? echo $BorderColor; ?>;
 					    border-style: solid;
-					    border-width: 0 0 <? echo $BorderColor; ?> 0;
+					    border-width: 0 0 <? echo $BorderSize; ?> 0;
+					}
+					.scFormDataOddMult {
+					    background-color: #F2F4F7;
+					    background-image: none;
+					    opacity: 1;
+					    filter: alpha(opacity=100);
+					    border-color: <? echo $BorderColor; ?>;
+					    border-style: solid;
+					    border-width: 0 0 <? echo $BorderSize; ?> 0;
+					    color: <? echo $FontColor; ?>;
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
+					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
+					    text-decoration: none;
 					}				
 				</style>
 			<?php
