@@ -160,6 +160,16 @@
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    text-decoration: none;
+					}
+					.scFormObjectOddMult, .ui-dropdownchecklist-selector-wrapper > .ui-dropdownchecklist-selector {
+					    border-width: 1px;
+					    color: <? echo $FontColor; ?>;
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
+					    text-decoration: none;
+					    -moz-border-radius: 2px;
+					    -webkit-border-radius: 2px;
+					    border-radius: 2px;
 					}				
 				</style>
 			<?php
