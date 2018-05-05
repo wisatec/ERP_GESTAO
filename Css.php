@@ -97,7 +97,7 @@
 			?>
 				<style type="text/css">
 					.scGridLabelFont {
-					    color: $FontColor;
+					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    font-weight: <? echo $FontBold; ?>;
@@ -116,7 +116,7 @@
 			?>
 				<style type="text/css">
 					.scGridFieldOddFont {
-					    color: $FontColor;
+					    color: <? echo $FontColor; ?>
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    font-weight: <? echo $FontBold; ?>;
