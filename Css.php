@@ -93,7 +93,7 @@
 				</style>
 			<?php
 		}    
-		function AjustarLabelGrid($padTB,$padLR,$FontSize,$BorderSize,$FontBold,$FontColor,$BorderColor){
+		function AjustarLabelGrid($padTB,$padLR,$FontSize,$FontBold,$FontColor,$BorderSize,$BorderColor){
 			?>
 				<style type="text/css">
 					.scGridLabelFont {
@@ -107,6 +107,24 @@
 					    border-color: <? echo $BorderColor; ?>;
 					    border-style: solid;
 					    border-width: <? echo $BorderSize; ?>;
+					}				
+				</style>
+			<?php
+			
+		}
+		function AjustarCelulasGrid($padTB,$padLR,$FontSize,$FontBold,$FontColor,$BorderSize,$BorderColor){
+			?>
+				<style type="text/css">
+					.scGridFieldOddFont {
+					    color: $FontColor;
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
+					    font-weight: <? echo $FontBold; ?>;
+					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
+					    text-decoration: none;
+					    border-color: <? echo $BorderColor; ?>;
+					    border-style: solid;
+					    border-width: 0 0 <? echo $BorderColor; ?> 0;
 					}				
 				</style>
 			<?php
