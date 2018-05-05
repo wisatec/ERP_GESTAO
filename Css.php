@@ -114,14 +114,15 @@
 					    border-color: <? echo $BorderColor; ?>;
 					    border-style: solid;
 					    border-width: <? echo $BorderSize; ?>;
-					    color: <? echo $FontColor; ?>
+					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    font-weight: <? echo $FontBold; ?>;
 					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
 					    text-decoration: none;
 					    vertical-align: middle;
-					}				
+					}
+				
 				</style>
 			<?php
 			
@@ -152,6 +153,12 @@
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
+					    text-decoration: none;
+					}
+					.scFormDataFontOddMult {
+					    color: <? echo $FontColor; ?>;
+					    font-family: Arial, sans-serif;
+					    font-size: <? echo $FontSize; ?>;
 					    text-decoration: none;
 					}				
 				</style>
