@@ -127,13 +127,12 @@
 			<?php
 			
 		}
-		function AjustarCelulasGrid($padTB,$padLR,$FontSize,$FontBold,$BorderSize,$BorderColor){
+		function AjustarCelulasGrid($padTB,$padLR,$FontSize,$BorderSize,$BorderColor){
 			?>
 				<style type="text/css">
 					.scGridFieldOddFont {
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
-					    font-weight: <? echo $FontBold; ?>;
 					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
 					    text-decoration: none;
 					    border-color: <? echo $BorderColor; ?>;
@@ -148,7 +147,6 @@
 					    border-color: <? echo $BorderColor; ?>;
 					    border-style: solid;
 					    border-width: 0 0 <? echo $BorderSize; ?> 0;
-					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    padding: <? echo $padTB; ?> <? echo $padLR; ?>;
