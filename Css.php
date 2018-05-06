@@ -127,11 +127,10 @@
 			<?php
 			
 		}
-		function AjustarCelulasGrid($padTB,$padLR,$FontSize,$FontBold,$FontColor,$BorderSize,$BorderColor){
+		function AjustarCelulasGrid($padTB,$padLR,$FontSize,$FontBold,$BorderSize,$BorderColor){
 			?>
 				<style type="text/css">
 					.scGridFieldOddFont {
-					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    font-weight: <? echo $FontBold; ?>;
@@ -156,14 +155,12 @@
 					    text-decoration: none;
 					}
 					.scFormDataFontOddMult {
-					    color: <? echo $FontColor; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    text-decoration: none;
 					}
 					.scFormObjectOddMult, .ui-dropdownchecklist-selector-wrapper > .ui-dropdownchecklist-selector {
-					    border-width: 1px;
-					    color: <? echo $FontColor; ?>;
+					    border-width: <? echo $BorderSize; ?>;
 					    font-family: Arial, sans-serif;
 					    font-size: <? echo $FontSize; ?>;
 					    text-decoration: none;
