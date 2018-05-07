@@ -57,7 +57,16 @@
 			self::close();
 			return $result;
 		}	
-							
+	
+		static function ObterItemDAO($iditem){
+			$sql = "SELECT i.xProd,i.UnidadeVenda FROM Item i 
+  					INNER JOIN unidade u  ON i.UnidadeVenda = u.unidade_id
+  					WHERE i.IdItem = ".$iditem;
+			$result = self::sqlSelectOne($sql);
+			self::close();
+			return $result;
+		}	
+									
 		static function ExisteExTipiDAO($codNcm){
 			$sql= "SELECT te.CodEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."'";
 			$result = self::sqlRecordBit($sql);

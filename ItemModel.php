@@ -57,6 +57,11 @@
 			return $result;	
 		}	
 				
+		function ObterItem($iditem){
+			$result = ItemDAO::ObterItemDAO($iditem);
+			return $result;	
+		}	
+						
 		function ObterPercLucroTabela($idtabela){
 			$result = ItemDAO::ObterPercLucroTabelaDAO($idtabela);
 			return $result;			
