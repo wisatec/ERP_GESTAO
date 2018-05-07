@@ -168,6 +168,9 @@
 					}
 					.scFormObjectFocusOddMult, .ui-dropdownchecklist-selector-wrapper > .ui-dropdownchecklist-selector{
 						font-size: <? echo $FontSize; ?>;	
+					}
+					.scGridFieldEvenFont{
+						font-size: <? echo $FontSize; ?>;
 					}				
 				</style>
 			<?php
