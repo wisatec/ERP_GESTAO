@@ -78,13 +78,15 @@ require_once 'Constantes.php';
 			
 			$result = false;
 			$conn = self::conectar();
+			$conn->beginTransaction();
 			$stm = $conn->prepare($sql);		
 			if ($stm->execute()) {
-				$stm->commit();
+				$conn->commit();
 				return TRUE;
 			}			 
 		}
 		catch(PDOException $e){
+			self::$instance->rollBack();
 			return FALSE;
 			echo "Erro : ".$e->getMessage();
 		}
