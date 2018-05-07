@@ -165,6 +165,9 @@
 					    -moz-border-radius: 2px;
 					    -webkit-border-radius: 2px;
 					    border-radius: 2px;
+					}
+					.scFormObjectOddMult, .ui-dropdownchecklist-selector-wrapper > .ui-dropdownchecklist-selector{
+						font-size: <? echo $FontSize; ?>;	
 					}				
 				</style>
 			<?php
