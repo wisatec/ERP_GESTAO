@@ -73,7 +73,7 @@
 		}	
 		
 		static function AtualizarTotalPropostaDAO($idReq,$vrTotal){
-			$sql = "UPDATE PropostaComercial set ValorTotal ".$vrTotal." WHERE IdProposta = ".$idReq;
+			$sql = "UPDATE PropostaComercial set ValorTotal = ".$vrTotal." WHERE IdProposta = ".$idReq;
 			$result = self::sqlExec($sql);
 			return $result;
 		}
