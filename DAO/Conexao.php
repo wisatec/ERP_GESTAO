@@ -80,6 +80,7 @@ require_once 'Constantes.php';
 			$conn = self::conectar();
 			$stm = $conn->prepare($sql);		
 			if ($stm->execute()) {
+				$stm->commit();
 				return TRUE;
 			}			 
 		}
