@@ -43,8 +43,8 @@
 			return $subtotal;
 		}	
 		
-		function SomaProposta($id){
-			$result =  PropostaComercialDAO::SomaPropostaDAO($id);
+		function SomaValorPropostaDAO($id){
+			$result =  PropostaComercialDAO::SomaValorPropostaDAO($id);
 			return $result;			
 			
 		}			

@@ -59,7 +59,7 @@
 		}	
 	
 		static function ObterItemDAO($iditem){
-			$sql = "SELECT i.xProd,i.UnidadeVenda FROM Item i 
+			$sql = "SELECT i.xProd,i.UnidadeVenda,u.unidade_sigla FROM Item i 
   					INNER JOIN unidade u  ON i.UnidadeVenda = u.unidade_id
   					WHERE i.IdItem = ".$iditem;
 			$result = self::sqlSelectOne($sql);
