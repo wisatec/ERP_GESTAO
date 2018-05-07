@@ -43,11 +43,17 @@
 			return $subtotal;
 		}	
 		
-		function SomaValorPropostaDAO($id){
+		function SomaValorProposta($id){
 			$result =  PropostaComercialDAO::SomaValorPropostaDAO($id);
 			return $result;			
 			
-		}			
+		}	
+		
+		function AtualizarTotalProposta($idReq,$vrTotal){
+			$result =  PropostaComercialDAO::AtualizarTotalPropostaDAO($idReq, $vrTotal);
+			return $result;			
+			
+		}				
 	}
 	
 ?>

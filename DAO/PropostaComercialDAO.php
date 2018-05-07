@@ -70,7 +70,13 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
-		}						
+		}	
+		
+		static function AtualizarTotalPropostaDAO($idReq,$vrTotal){
+			$sql = "UPDATE PropostaComercial set ValorTotal ".$vrTotal." WHERE IdProposta = ".$idReq;
+			$result = self::sqlExec($sql);
+			return $result;
+		}
     }
     
 ?>
