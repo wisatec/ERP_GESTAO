@@ -18,7 +18,7 @@
 			return $result;			
 		}
 		static function ObterFantasiaFornecedorDAO($cod){
-			$sql = "SELECT  f.Fantasia FROM Fornecedor f WHERE f.idfornecedor = ".$id;
+			$sql = "SELECT  f.Fantasia FROM Fornecedor f WHERE f.idfornecedor = ".$cod;
 			$rs = self::sqlSelectCount($sql);
 			return $rs;				
 		}
