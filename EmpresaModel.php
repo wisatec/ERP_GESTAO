@@ -7,9 +7,10 @@
         function __construct($argument) {
             
         }
+		function ObterDescrFantasia($cod){
+	   		$rs = EmpresaDAO::ObterDescrNomeFantasiaDAO($cod);
+			return $rs;
+   		}
     }
-   	function ObterDescrFantasia($cod){
-   		$rs = EmpresaDAO::ObterDescrNomeFantasiaDAO($cod);
-		return $rs;
-   	}
+
 ?>
