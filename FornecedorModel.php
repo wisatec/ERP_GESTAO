@@ -17,7 +17,7 @@
 			$result = FornecedorDAO::PesquisaCnpjUpdateDAO($cnpj, $id);
 			return $result;				
 		}
-		function ObterFantasiaFornecedor(){
+		function ObterFantasiaFornecedor($cod){
 			$rs = FornecedorDAO::ObterFantasiaFornecedorDAO($cod);
 			return $rs;
 		}	
