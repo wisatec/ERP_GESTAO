@@ -64,7 +64,7 @@
 		static function SomaValorPropostaDAO($id){
 			$sql = "SELECT (CASE 
          			WHEN SUM(pcd.vrTotalGeralUnit) IS NULL  THEN 0
-         			ELSE SUM(pcd.vrTotalGeralUnit)
+         			ELSE SUM(pcd.vrTotalGeralUnit) - SUM(pcd.vrDesc)
        				END) AS total 
     				FROM PropostaComercialDet pcd   WHERE pcd.IdProposta = ".$id;
 			$result = self::sqlSelectOne($sql);
