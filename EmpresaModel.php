@@ -5,8 +5,11 @@
     class EmpresaModel {
         
         function __construct($argument) {
-            // teste de commit ricardo
+            
         }
     }
-   	
+   	function ObterDescrFantasia($cod){
+   		$rs = EmpresaDAO::ObterDescrNomeFantasiaDAO($cod);
+		return $rs;
+   	}
 ?>

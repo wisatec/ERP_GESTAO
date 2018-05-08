@@ -46,6 +46,20 @@
 		function AtualizarTotalRequisicao($idReq,$vrTotal){
 			$result = RequisicaoDAO::AtualizarTotalRequisicaoDAO($idReq, $vrTotal);
 			return $result;
+		}
+		function ExibeDescrEstadoReq($codEstado){
+			if ($codEstado == 1) {
+				return "ABERTA";
+			} else {
+				return "ENCERRADA";
+			}			
+		}
+		function ExibeDescrTipoReq($tipo){
+			if ($tipo == 1) {
+				return "COMPRA DIRETA";
+			} else {
+				return "COTAÇÃO";
+			}
 		}		
     }
     
