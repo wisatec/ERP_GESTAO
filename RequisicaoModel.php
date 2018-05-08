@@ -49,16 +49,16 @@
 		}
 		function ExibeDescrEstadoReq($codEstado){
 			if ($codEstado == 1) {
-				return utf8_encode("ABERTA");
+				return "ABERTA";
 			} else {
-				return utf8_encode("ENCERRADA");
+				return "ENCERRADA";
 			}			
 		}
 		function ExibeDescrTipoReq($tipo){
 			if ($tipo == 1) {
-				return utf8_encode("COMPRA DIRETA");
+				return "COMPRA DIRETA";
 			} else {
-				return utf8_encode("COTAÇÃO");
+				return "COTAÇÃO";
 			}
 		}		
     }
