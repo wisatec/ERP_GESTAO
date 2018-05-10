@@ -21,6 +21,8 @@
 	require_once(dirname(__FILE__).'/DAO/ProdutoPrecoDAO.php');
 	require_once(dirname(__FILE__).'/DAO/PropostaComercialDAO.php');
 	require_once(dirname(__FILE__).'/DAO/RequisicaoDAO.php');
+	require_once(dirname(__FILE__).'/DAO/SenhaCotacaDAO.php');
+	
     /**
      * Classe Utilitários 
      */
