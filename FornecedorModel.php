@@ -20,6 +20,10 @@
 		function ObterFantasiaFornecedor($cod){
 			$rs = FornecedorDAO::ObterFantasiaFornecedorDAO($cod);
 			return $rs;
+		}
+		function ObterFoneMailContato($cod){
+			$rs = FornecedorDAO::ObterFoneMailContatoDAO($cod);
+			return $rs;
 		}	
 			
     }
