@@ -10,7 +10,7 @@
         }
 		
 		function VerificaAcessoModel($idprod){
-			$result =  SenhaCotacaoDAO::VerificaAcessoDAO($idfornec, $cnpj, $pwd);
+			$result =  SenhaCotacaoDAO::VerificaAcessoDAO($cnpj, $pwd);
 			return $result;
 			
 		}			
