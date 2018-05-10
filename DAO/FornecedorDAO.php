@@ -22,6 +22,11 @@
 			$rs = self::sqlSelectOne($sql);
 			return $rs;				
 		}
+		static function ObterFoneMailContatoDAO($cod){
+			$sql = "SELECT fc.Tel,fc.Email FROM FornecedorContato fc WHERE fc.idFornecedorContato = ".$cod;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;				
+		}
 		
     }
     
