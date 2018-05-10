@@ -46,8 +46,7 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
-		}	
-		
+		}		
 		static function CalculaValorItemDAO($iditem,$perclucro,$qtde){
 			$sql = "SELECT i.PrecoBruto, (i.PrecoBruto * 2.00) AS vrsemlucro,
 						(((i.PrecoBruto * ".$qtde.")  * ".$perclucro.") / 100 ) AS lucro,
@@ -57,7 +56,6 @@
 			self::close();
 			return $result;
 		}	
-	
 		static function ObterItemDAO($iditem){
 			$sql = "SELECT i.xProd,i.UnidadeVenda,u.unidade_sigla FROM Item i 
   					INNER JOIN unidade u  ON i.UnidadeVenda = u.unidade_id
@@ -65,8 +63,7 @@
 			$result = self::sqlSelectOne($sql);
 			self::close();
 			return $result;
-		}	
-									
+		}								
 		static function ExisteExTipiDAO($codNcm){
 			$sql= "SELECT te.CodEx FROM TipiEx te WHERE te.CodNcm = '".$codNcm."'";
 			$result = self::sqlRecordBit($sql);
@@ -96,6 +93,11 @@
 			$result  = self::sqlExec($sql);
 			return $result;
     	}	
-	}
+		static function ExisteCodItemDAO($codItem){
+			$sql = "SELECT i.IdItem FROM Item i WHERE i.IdItem = ".$codItem;
+			$bool = self::sqlRecordBit($sql);
+			return $bool;		
+		}	
+}
     
 ?>

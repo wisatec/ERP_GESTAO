@@ -75,7 +75,11 @@
 			$codBarras = $util->GerarCodBarrasEAN13();
     		$result = ItemDAO::InserirCodEan($codProd, $codBarras);
 			return $result;
-    	}	
+    	}
+		function ExisteCodItem($codItem){
+			$bool = ItemDAO::ExisteCodItemDAO($codItem);
+			return $bool;
+		}	
 	}
     
 ?>
