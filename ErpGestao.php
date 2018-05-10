@@ -11,6 +11,7 @@
 	require_once(dirname(__FILE__).'/RequisicaoModel.php');
 	require_once(dirname(__FILE__).'/ProdutoPrecoModel.php');
 	require_once(dirname(__FILE__).'/PropostaComercialModel.php');
+	require_once(dirname(__FILE__).'/SenhaCotacaoModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
 	require_once(dirname(__FILE__).'/DAO/ClienteDAO.php');
 	require_once(dirname(__FILE__).'/DAO/EmpresaDAO.php');	
