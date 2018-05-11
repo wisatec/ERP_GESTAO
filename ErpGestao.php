@@ -12,6 +12,7 @@
 	require_once(dirname(__FILE__).'/ProdutoPrecoModel.php');
 	require_once(dirname(__FILE__).'/PropostaComercialModel.php');
 	require_once(dirname(__FILE__).'/SenhaCotacaoModel.php');
+	require_once(dirname(__FILE__).'/CotacaoFornecedorModel.php');
 	require_once(dirname(__FILE__).'/DAO/Conexao.php');
 	require_once(dirname(__FILE__).'/DAO/ClienteDAO.php');
 	require_once(dirname(__FILE__).'/DAO/EmpresaDAO.php');	
@@ -23,6 +24,7 @@
 	require_once(dirname(__FILE__).'/DAO/PropostaComercialDAO.php');
 	require_once(dirname(__FILE__).'/DAO/RequisicaoDAO.php');
 	require_once(dirname(__FILE__).'/DAO/SenhaCotacaoDAO.php');
+	require_once(dirname(__FILE__).'/DAO/CotacaoFornecedorDAO.php');
 	
 	
     /**
