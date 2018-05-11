@@ -97,6 +97,20 @@
 			$sql = "SELECT i.IdItem FROM Item i WHERE i.IdItem = ".$codItem;
 			$bool = self::sqlRecordBit($sql);
 			return $bool;		
+		}
+		static function ObterDescrItemReqDAO($idDetReq){
+			$sql = "SELECT
+					  rcd.IdItem
+					  ,rcd.ItemDescr
+					  ,rcd.idMarca
+					  ,rcd.DescrMarca
+					  ,rcd.unidade_id
+					  ,rcd.QtdeItem
+					  ,rcd.ItemObs
+					  FROM RequisicaoCompraDet rcd
+					  WHERE rcd.IdDetRc = ".$idDetReq;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;			
 		}	
 }
     

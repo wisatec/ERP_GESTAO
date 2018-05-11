@@ -79,6 +79,10 @@
 		function ExisteCodItem($codItem){
 			$bool = ItemDAO::ExisteCodItemDAO($codItem);
 			return $bool;
+		}
+		function ObterDescrItemReq($idDetReq){
+			$rs = ItemDAO::ObterDescrItemReqDAO($idDetReq);
+			return $rs;
 		}	
 	}
     
