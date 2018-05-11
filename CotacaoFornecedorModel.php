@@ -6,7 +6,7 @@
 			
 		}
 		
-		function VerificaAcessoModel($empresa){
+		function CarregaEnderecoCobrancaModel($empresa){
 			$result =  CotacaoFornecedorDAO::CarregaEnderecoCobrancaDAO($empresa);
 			return $result;
 		}			
