@@ -25,6 +25,14 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;			
 		}
+		
+		static function CotacaoValorItensDAO($idCot,$idForn){
+			$sql = "SELECT  SUM(cvi.VrTotalUnit) as soma  
+                      FROM CotacaoValorItens cvi 
+                      WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn;
+			$result = self::sqlSelectOne($sql);
+			return $result;			
+		}		
 				
 	}
 	
