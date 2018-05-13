@@ -33,6 +33,16 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;			
 		}		
+		
+		static function SomaFreteDAO($idCot,$idForn){
+			$sql = " SELECT  SUM(cvi.VrTotalUnit) +
+              				(select  ct.VrFrete from CotacaoTotal ct
+               				 WHERE ct.idCotacao = ".$idCot." AND ct.IdFornecedor = ".$idForn.") as soma
+                      FROM CotacaoValorItens cvi 
+                      WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn;
+			$result = self::sqlSelectOne($sql);
+			return $result;			
+		}			
 				
 	}
 	

@@ -15,6 +15,11 @@
 			$result =  CotacaoFornecedorDAO::CotacaoValorItensDAO($idCot, $idForn);
 			return $result;
 		}
+		
+		function SomaFreteModel($idCot, $idForn){
+			$result =  CotacaoFornecedorDAO::CotacaoValorItensDAO($idCot, $idForn);
+			return $result;
+		}		
 	}
 	
 	
