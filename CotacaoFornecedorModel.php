@@ -11,7 +11,7 @@
 			return $result;
 		}	
 		
-		function CotacaoValorItensModel($empresa){
+		function CotacaoValorItensModel($idCot, $idForn){
 			$result =  CotacaoFornecedorDAO::CotacaoValorItensDAO($idCot, $idForn);
 			return $result;
 		}
