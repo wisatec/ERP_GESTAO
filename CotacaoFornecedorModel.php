@@ -39,8 +39,8 @@
 			return $result;
 		}
 		function ObterFornecedores($idCot){
-			$keys = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot);
-			return $keys;
+			$rs = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot);
+			return $rs;
 		}		
 	}
 	
