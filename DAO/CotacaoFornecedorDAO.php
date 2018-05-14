@@ -43,7 +43,35 @@
 			$result = self::sqlSelectOne($sql);
 			return $result;			
 		}			
-				
-	}
+
+		static function ExisteLoginFornecedorDAO($idForn){
+			$sql = "SELECT lc.IdFornecedor FROM LoginCotacao lc WHERE lc.IdFornecedor = ".$idForn;
+			$bool = self::sqlRecordBit($sql);
+			return $bool;
+		}
+		static function InserirLoginFornecedorDAO($idForn,$Login,$Password){
+			$sql = "INSERT INTO LoginCotacao
+						(
+						  Cnpj
+						 ,IdFornecedor
+						 ,Password
+						)
+						VALUES
+						(
+						  '.$Login.' 
+						 ,".$idForn." 
+						 ,'.$Password.' 
+						)";
+			$result = self::sqlExec($sql);
+			return $result;
+		}			
+		static function ObterFornedoresDAO($idCot){
+			$idFornecedores = array();
+			$sql = "SELECT cf.IdFornecedor FROM CotacaoFornecedor cf WHERE cf.idCotacao = ".$idCot;
+			$rs = self::sqlSelectAll($sql);
+			$keys = array_keys($rs);
+			return $keys;
+		}	
+}
 	
 ?>

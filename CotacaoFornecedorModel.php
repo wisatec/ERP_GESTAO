@@ -19,6 +19,28 @@
 		function SomaFreteModel($idCot, $idForn){
 			$result =  CotacaoFornecedorDAO::CotacaoValorItensDAO($idCot, $idForn);
 			return $result;
+		}
+		function GerarSenhaFornecedor(){
+			$inicio = 0;
+			$fim = 9999999;
+			$access = mt_rand($inicio,$fim);
+			return $access;
+		}
+		function CriptografaSenha($password){
+			$pass = md5($password);
+			return $pass;
+		}
+		function ExisteLoginFornecedor($idForn){
+			$bool = CotacaoFornecedorDAO::ExisteLoginFornecedorDAO($idForn);
+			return $bool;
+		}
+		function InserirLoginFornecedor($idForn,$Login,$Password){
+			$result = CotacaoFornecedorDAO::InserirLoginFornecedorDAO($idForn, $Login, $Password);
+			return $result;
+		}
+		function ObterFornecedores($idCot){
+			$keys = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot);
+			return $keys;
 		}		
 	}
 	
