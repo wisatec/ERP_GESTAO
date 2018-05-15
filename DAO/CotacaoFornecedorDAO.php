@@ -66,7 +66,18 @@
 			return $result;
 		}			
 		static function ObterFornedoresDAO($idCot){
-			$sql = "SELECT cf.IdFornecedor,cf.Email FROM CotacaoFornecedor cf WHERE cf.idCotacao = ".$idCot;
+			$sql = "SELECT 
+					  cf.IdFornecedor
+					  ,cf.Email
+					  ,e.Razao
+					  ,c.DtAbertura
+					  ,c.DtLimite 
+					  FROM CotacaoFornecedor cf 
+					  INNER JOIN Cotacao c
+					  ON c.idCotacao = cf.idCotacao
+					  INNER JOIN Empresa e
+					  ON c.IdEmpresa = e.IdEmpresa
+					  WHERE cf.idCotacao = ".$idCot;
 			$rs = self::sqlSelectAll($sql);
 			return $rs;
 		}
