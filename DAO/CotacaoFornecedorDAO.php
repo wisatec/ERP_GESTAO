@@ -69,6 +69,11 @@
 			$sql = "SELECT cf.IdFornecedor FROM CotacaoFornecedor cf WHERE cf.idCotacao = ".$idCot;
 			$rs = self::sqlSelectAll($sql);
 			return $rs;
+		}
+		static function ObterCnpjFornecedorDAO($idFornec){
+			$sql = "SELECT f.Cnpj from Fornecedor f where f.IdFornecedor = ".$idFornec;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;
 		}	
 }
 	

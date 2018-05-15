@@ -41,6 +41,10 @@
 		function ObterFornecedores($idCot){
 			$rs = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot);
 			return $rs;
+		}
+		function ObterCnpjFornecedor($idForn){
+			$rs = CotacaoFornecedorDAO::ObterCnpjFornecedorDAO($idFornec);
+			return $rs;
 		}		
 	}
 	
