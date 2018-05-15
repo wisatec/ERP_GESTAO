@@ -68,7 +68,7 @@
 		static function ObterFornedoresDAO($idCot){
 			$sql = "SELECT 
 					  cf.IdFornecedor
-					  cf.Fantasia
+					  ,f.Fantasia
 					  ,cf.Email
 					  ,e.Razao
 					  ,c.DtAbertura
@@ -78,6 +78,8 @@
 					  ON c.idCotacao = cf.idCotacao
 					  INNER JOIN Empresa e
 					  ON c.IdEmpresa = e.IdEmpresa
+            		  INNER JOIN Fornecedor f
+            		  ON cf.IdFornecedor = f.IdFornecedor
 					  WHERE cf.idCotacao = ".$idCot;
 			$rs = self::sqlSelectAll($sql);
 			return $rs;
