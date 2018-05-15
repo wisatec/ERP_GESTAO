@@ -74,6 +74,15 @@
 			$sql = "SELECT f.Cnpj from Fornecedor f where f.IdFornecedor = ".$idFornec;
 			$rs = self::sqlSelectOne($sql);
 			return $rs;
+		}
+		static function ObterCredenciaisDAO($idForn){
+			$sql = "SELECT
+					  lc.Cnpj
+					  ,lc.Password 
+					  FROM LoginCotacao lc
+					  WHERE lc.IdFornecedor = ".$idFornec;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;		
 		}	
 }
 	
