@@ -80,7 +80,7 @@
 					  lc.Cnpj
 					  ,lc.Password 
 					  FROM LoginCotacao lc
-					  WHERE lc.IdFornecedor = ".$idFornec;
+					  WHERE lc.IdFornecedor = ".$idForn;
 			$rs = self::sqlSelectOne($sql);
 			return $rs;		
 		}	
