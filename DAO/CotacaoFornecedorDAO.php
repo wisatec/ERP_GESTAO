@@ -58,9 +58,9 @@
 						)
 						VALUES
 						(
-						  '.$Login.' 
+						  '".$Login."' 
 						 ,".$idForn." 
-						 ,'.$Password.' 
+						 ,'".$Password."' 
 						)";
 			$result = self::sqlExec($sql);
 			return $result;
