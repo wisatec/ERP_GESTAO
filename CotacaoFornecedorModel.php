@@ -49,6 +49,10 @@
 		function ObterCredenciais($idForn){
 			$rs = CotacaoFornecedorDAO::ObterCredenciaisDAO($idForn);
 			return $rs;
+		}
+		function EmailGeralAtualizaData($idCot){
+			$bool = CotacaoFornecedorDAO::EmailGeralAtualizaDataDAO($idCot);
+			return $bool;
 		}		
 	}
 	

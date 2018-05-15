@@ -84,6 +84,11 @@
 			$rs = self::sqlSelectOne($sql);
 			return $rs;		
 		}	
+		static function EmailGeralAtualizaDataDAO($idCot){
+			$sql =  " UPDATE Cotacao SET EnvioEmail = NOW() WHERE idCotacao = ".$idCot;
+			$bool = self::sqlExec($sql);
+			return $bool;
+		}
 }
 	
 ?>
