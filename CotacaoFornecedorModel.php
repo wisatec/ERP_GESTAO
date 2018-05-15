@@ -46,7 +46,7 @@
 			$rs = CotacaoFornecedorDAO::ObterCnpjFornecedorDAO($idForn);
 			return $rs;
 		}
-		function ObterCredenciais($idFornec){
+		function ObterCredenciais($idForn){
 			$rs = CotacaoFornecedorDAO::ObterCredenciaisDAO($idForn);
 			return $rs;
 		}		
