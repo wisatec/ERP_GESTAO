@@ -68,6 +68,7 @@
 		static function ObterFornedoresDAO($idCot){
 			$sql = "SELECT 
 					  cf.IdFornecedor
+					  cf.Fantasia
 					  ,cf.Email
 					  ,e.Razao
 					  ,c.DtAbertura
