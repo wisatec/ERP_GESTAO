@@ -103,6 +103,25 @@
 			$bool = self::sqlExec($sql);
 			return $bool;
 		}
+		static function ObterFornedorDAO($idCot,$idForn){
+			$sql = "SELECT 
+					  cf.IdFornecedor
+					  ,f.Fantasia
+					  ,cf.Email
+					  ,e.Razao
+					  ,c.DtAbertura
+					  ,c.DtLimite 
+					  FROM CotacaoFornecedor cf 
+					  INNER JOIN Cotacao c
+					  ON c.idCotacao = cf.idCotacao
+					  INNER JOIN Empresa e
+					  ON c.IdEmpresa = e.IdEmpresa
+            		  INNER JOIN Fornecedor f
+            		  ON cf.IdFornecedor = f.IdFornecedor
+					  WHERE cf.idCotacao = ".$idCot." AND cf.IdFornecedor = ".$idForn;
+			$rs = self::sqlSelectAll($sql);
+			return $rs;
+		}
 }
 	
 ?>

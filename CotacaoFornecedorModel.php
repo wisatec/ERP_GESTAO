@@ -53,6 +53,10 @@
 		function EmailGeralAtualizaData($idCot){
 			$bool = CotacaoFornecedorDAO::EmailGeralAtualizaDataDAO($idCot);
 			return $bool;
+		}
+		function ObterFornecedor($idCot,$idForn){
+			$rs = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot,$idForn);
+			return $rs;
 		}		
 	}
 	
