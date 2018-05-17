@@ -119,8 +119,13 @@
             		  INNER JOIN Fornecedor f
             		  ON cf.IdFornecedor = f.IdFornecedor
 					  WHERE cf.idCotacao = ".$idCot." AND cf.IdFornecedor = ".$idForn;
-			$rs = self::sqlSelectAll($sql);
+			$rs = self::sqlSelectOne($sql);
 			return $rs;
+		}
+		static function EmailIndAtualizaDataDAO($idCot,$idForn){
+			$sql =  "UPDATE CotacaoFornecedor SET ReenvioEmail = NOW() WHERE idCotacao = ".$idCot." AND IdFornecedor = ".$idForn;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}
 }
 	

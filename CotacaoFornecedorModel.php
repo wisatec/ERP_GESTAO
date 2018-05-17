@@ -55,8 +55,12 @@
 			return $bool;
 		}
 		function ObterFornecedor($idCot,$idForn){
-			$rs = CotacaoFornecedorDAO::ObterFornedoresDAO($idCot,$idForn);
+			$rs = CotacaoFornecedorDAO::ObterFornedorDAO($idCot,$idForn);
 			return $rs;
+		}
+		function EmailIndAtualizaData($idCot,$idForn){
+			$bool = CotacaoFornecedorDAO::EmailIndAtualizaDataDAO($idCot,$idForn);
+			return $bool;
 		}		
 	}
 	
