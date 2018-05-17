@@ -17,7 +17,7 @@
 		}
 		
 		function SomaFreteModel($idCot, $idForn){
-			$result =  CotacaoFornecedorDAO::CotacaoValorItensDAO($idCot, $idForn);
+			$result =  CotacaoFornecedorDAO::SomaFreteDAO($idCot, $idForn);
 			return $result;
 		}
 		function GerarSenhaFornecedor(){
