@@ -61,7 +61,11 @@
 		function EmailIndAtualizaData($idCot,$idForn){
 			$bool = CotacaoFornecedorDAO::EmailIndAtualizaDataDAO($idCot,$idForn);
 			return $bool;
-		}		
+		}	
+		function ObterCondicaoPagto($idcond){
+			$rs = CotacaoFornecedorDAO::ObterCondicaoPagtoDAO($idcond);
+			return $rs;
+		}	
 	}
 	
 	

@@ -127,6 +127,11 @@
 			$bool = self::sqlExec($sql);
 			return $bool;
 		}
+		static function ObterCondicaoPagtoDAO($idcond){
+			$sql = "select cp.condicao from CondicaoPagto cp WHERE cp.idcondicao = ".$idcond;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;		
+		}			
 }
 	
 ?>
