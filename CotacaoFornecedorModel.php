@@ -65,6 +65,10 @@
 		function ObterCondicaoPagto($idcond){
 			$rs = CotacaoFornecedorDAO::ObterCondicaoPagtoDAO($idcond);
 			return $rs;
+		}
+		function MudaStatusEnvioAprov($cod,$idCot){
+			$result = CotacaoFornecedorDAO::MudaStatusEnvioAprovDAO($cod, $idCot);
+			return $result;
 		}	
 	}
 	

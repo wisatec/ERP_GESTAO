@@ -131,6 +131,14 @@
 			$sql = "select cp.condicao from CondicaoPagto cp WHERE cp.idcondicao = ".$idcond;
 			$rs = self::sqlSelectOne($sql);
 			return $rs;		
+		}
+		static function MudaStatusEnvioAprov($cod,$idCot){
+			$sql = "UPDATE Cotacao SET EnvioAprovacao = (CASE
+                                        WHEN ".$cod." = 1 THEN 2
+                                        WHEN ".$cod." = 2 THEN 1)
+  						WHERE idCotacao = ".$idCot;
+			$result = self::sqlExec($sql);
+			return $result;
 		}			
 }
 	
