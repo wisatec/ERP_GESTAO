@@ -84,6 +84,10 @@
 			$rs = ItemDAO::ObterDescrItemReqDAO($idDetReq);
 			return $rs;
 		}	
+		function ObterMarca($idmarca){
+			$rs = ItemDAO::ObterMarcaDAO($idmarca);
+			return $rs;		
+		}
 	}
     
 ?>
