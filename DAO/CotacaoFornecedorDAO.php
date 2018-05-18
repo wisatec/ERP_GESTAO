@@ -132,13 +132,14 @@
 			$rs = self::sqlSelectOne($sql);
 			return $rs;		
 		}
-		static function MudaStatusEnvioAprov($cod,$idCot){
+		static function MudaStatusEnvioAprovDAO($cod,$idCot){
 			$sql = "UPDATE Cotacao SET EnvioAprovacao = (CASE
                                         WHEN ".$cod." = 1 THEN 2
-                                        WHEN ".$cod." = 2 THEN 1)
+                                        WHEN ".$cod." = 2 THEN 1
+										END)
   						WHERE idCotacao = ".$idCot;
-			$result = self::sqlExec($sql);
-			return $result;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}			
 }
 	
