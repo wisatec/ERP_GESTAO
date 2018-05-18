@@ -112,6 +112,11 @@
 			$rs = self::sqlSelectOne($sql);
 			return $rs;			
 		}	
+		static function ObterMarcaDAO($idmarca){
+			$sql = "SELECT m.DescrMarca FROM Marca m WHERE m.idMarca = ".$idmarca;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;			
+		}		
 }
     
 ?>
