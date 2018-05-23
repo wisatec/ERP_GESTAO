@@ -141,21 +141,6 @@
 			$bool = self::sqlExec($sql);
 			return $bool;
 		}	
-		static function VerificaDiferencaDAO($idCot){
-				$sql = "select ct.idCotacaoTotal, ct.vrTotalCotacao ,
-  						((ct.vrTotalCotacao  - (select min(ct.vrTotalCotacao) as MenoValor 
-  						from CotacaoTotal ct  where ct.idCotacao = ".$idCot."))) as subtracao,
-						CASE
-  						WHEN (((((ct.vrTotalCotacao  - (select min(ct.vrTotalCotacao) as MenoValor from CotacaoTotal ct
-  						where ct.idCotacao = ".$idCot.")) ) * 100) / ct.vrTotalCotacao)) = 0 THEN 'MENOR VALOR'
-  						ELSE
-  						((((ct.vrTotalCotacao  - (select min(ct.vrTotalCotacao) as MenoValor from CotacaoTotal ct
-  						where ct.idCotacao = ".$idCot.")) ) * 100) / ct.vrTotalCotacao)
-  						END as deferenca
- 						from CotacaoTotal ct where ct.idCotacao = ".$idCot." order by 2 ASC";		
-			$rs = self::sqlSelectOne($sql);
-			return $rs;			
-		}		
 }
 	
 ?>
