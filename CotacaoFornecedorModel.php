@@ -70,6 +70,10 @@
 			$result = CotacaoFornecedorDAO::MudaStatusEnvioAprovDAO($cod, $idCot);
 			return $result;
 		}	
+		function VerificaDiferenca($idCot){
+			$result = CotacaoFornecedorDAO::VerificaDiferencaDAO($idCot);
+			return $result;	
+		}
 	}
 	
 	
