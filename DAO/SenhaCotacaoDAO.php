@@ -23,6 +23,11 @@
 					  WHERE  lc.Cnpj = '".$cnpj."' AND lc.Password = '".$pwd."'";
 			$rs = self::sqlSelectOne($sql);
 			return $rs;			
+		}
+		static function AtualizaUltimoAcessoDAO($idForn){
+			$sql = "UPDATE LoginCotacao SET UltimoAcesso = NOW() WHERE IdFornecedor = ".$idForn;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}		
     }
     

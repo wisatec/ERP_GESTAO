@@ -13,6 +13,10 @@
 			$result =  SenhaCotacaoDAO::VerificaAcessoDAO($cnpj, $pwd);
 			return $result;
 			
+		}
+		function AtualizaUltimoAcesso($idForn){
+			$bool = SenhaCotacaoDAO::AtualizaUltimoAcessoDAO($idForn);
+			return $bool;
 		}			
     }
     
