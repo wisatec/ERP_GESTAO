@@ -7,4 +7,5 @@ define('OPT',array(PDO::ATTR_PERSISTENT => true,PDO::MYSQL_ATTR_INIT_COMMAND => 
 define('ICONE_BLOQUEIO_LIBERADO',"<img src = '../_lib/img/liberado.png' >");
 define('ICONE_BLOQUEIO_BLOQUEADO',"<img src = '../_lib/img/bloqueado.png' >");
 define('LINK_ACESSO_FORNECEDOR','www.grupowisatec.com.br/scriptcase9/app/Projeto_ERP/SenhaCotacao');
+define('URL_APLICACAO',"http://$_SERVER[HTTP_HOST]"."/scriptcase9/app/Projeto_ERP");
 ?>
