@@ -101,7 +101,7 @@
 										  WHERE IdRc =  ".$idRc.")"; 
 			self::sqlExec($sqlDet);
 			self::conn()->commit();
-			return true;				
+			return $ultimoid;				
 			}catch(exception $e){
 				self::conn()->rollBack();
 				return false;
