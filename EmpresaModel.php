@@ -11,6 +11,10 @@
 	   		$rs = EmpresaDAO::ObterDescrNomeFantasiaDAO($cod);
 			return $rs;
    		}
+		function ConcatenaEndereco($idem){
+	   		$rs = EmpresaDAO::ConcatenaEnderecoDAO($idem);
+			return $rs;
+   		}		
     }
 
 ?>
