@@ -85,7 +85,7 @@
 										   ,NULL AS ArquivoNF
 										  FROM RequisicaoCompra rc
 										  WHERE IdRc =  ".$idRc.")";
-			self::sqlExec($sql);
+			$rs = self::sqlExec($sql);
 			$ultimoid = self::conn()->lastInsertId();
 			$sqlDet = "INSERT INTO PedidoCompraDet (
 										SELECT
@@ -102,7 +102,7 @@
 			self::sqlExec($sqlDet);
 			self::conn()->commit();
 			return $ultimoid;				
-			}catch(exception $e){
+			}catch(Throwable $t){
 				self::conn()->rollBack();
 				return false;
 			}
