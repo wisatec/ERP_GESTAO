@@ -133,8 +133,8 @@
 			return $rs;		
 		}
 		static function MudaStatusEnvioAprovDAO($cod,$idCot){
-			$sql = "UPDATE Cotacao SET EnvioAprovacao = (CASE
-                                        WHEN ".$cod." = 1 THEN 2
+			$sql = "UPDATE Cotacao SET flagStatusCotacao = (CASE
+                                        WHEN ".$cod." = 1 THEN 3
                                         WHEN ".$cod." = 2 THEN 1
 										END)
   						WHERE idCotacao = ".$idCot;
