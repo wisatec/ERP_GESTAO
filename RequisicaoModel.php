@@ -60,6 +60,10 @@
 			} else {
 				return "COTAÇÃO";
 			}
+		}
+		function GerarPedidoRequisicao($idRc){
+			$bool = RequisicaoDAO::GerarPedidoRequisicaoDAO($idRc);
+			return $bool;
 		}		
     }
     
