@@ -102,9 +102,9 @@
 				self::sqlExec($sqlDet);
 				//self::conn()->commit();
 			return $ultimoid;				
-			}catch(Throwable $t){
+			}catch(exception $e){
 				//self::conn()->rollBack();
-				return false;
+				return $e;
 			}
 			
 		}
