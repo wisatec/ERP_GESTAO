@@ -63,7 +63,9 @@
 		}
 		static function GerarPedidoRequisicaoDAO($idRc){
 			try{
+				//INICIA A TRANSAÇÃO
 				self::conn()->beginTransaction();
+				//INSERE OS DADOS NA TABELA PRINCIPAL
 				$sql = "INSERT INTO PedidoCompra (
 											SELECT
 											    0  AS idPedido
@@ -86,7 +88,9 @@
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
 				self::sqlExecComp($sql);
+				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
 				$ultimoid = self::conn()->lastInsertId();
+				// INSERE OS DADOS NA TABELA DETALHE
 				$sqlDet = "INSERT INTO PedidoCompraDet (
 											SELECT
 											  0 As idPedidoDet
@@ -100,9 +104,14 @@
 											  FROM RequisicaoCompraDet rcd
 											  WHERE IdRc =  ".$idRc.")"; 
 				self::sqlExecComp($sqlDet);
+				//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
+				$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
+				self::sqlExecComp($sqlReq);
+				//CONFIRMA AS ALTERAÇÕES NA BASE
 				self::conn()->commit();				
 			return $ultimoid;							
 			}catch(Throwable $t){
+				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
 				self::conn()->rollBack();
 				return false;
 			}
