@@ -86,11 +86,11 @@
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
 				self::sqlExec($sql);
-				$ultimoid = self::conn()->lastInsertId();
+				//$ultimoid = self::conn()->lastInsertId();
 				$sqlDet = "INSERT INTO PedidoCompraDet (
 											SELECT
 											  0 As idPedidoDet
-											 ,".$ultimoid." AS idPedido
+											 ,1 AS idPedido
 											 ,rcd.IdItem AS IdItem
 											 ,rcd.idMarca AS idMarca
 											 ,rcd.QtdeItem AS QtdeItem
