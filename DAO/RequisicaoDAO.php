@@ -82,7 +82,7 @@
 											   ,0 AS NumeroNota
 											   ,NULL AS ArquivoNF
 											  FROM RequisicaoCompra rc
-											  WHERE IdRc =  ".$idRc.")";
+											  WHERE IdRc =  7)";
 				$bool = self::sqlExec($sql);
 			return $bool;			
 		}
