@@ -63,7 +63,7 @@
 		}
 		static function GerarPedidoRequisicaoDAO($idRc){
 			try{
-				self::conn()->beginTransaction();
+				//self::conn()->beginTransaction();
 				$sql = "INSERT INTO PedidoCompra (
 											SELECT
 											    0  AS idPedido
@@ -100,10 +100,10 @@
 											  FROM RequisicaoCompraDet rcd
 											  WHERE IdRc =  ".$idRc.")"; 
 				self::sqlExec($sqlDet);
-				self::conn()->commit();				
+				//self::conn()->commit();				
 			return $ultimoid;							
 			}catch(Throwable $t){
-				self::conn()->rollBack();
+				//self::conn()->rollBack();
 				return false;
 			}
 
