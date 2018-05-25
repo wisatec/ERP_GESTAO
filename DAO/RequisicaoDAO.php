@@ -85,8 +85,7 @@
 											   ,NULL AS ArquivoNF
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
-				 self::sqlExec($sql);
-				 self::conn()->commit();
+				self::sqlExecComp($sql);
 				$ultimoid = self::conn()->lastInsertId();
 				$sqlDet = "INSERT INTO PedidoCompraDet (
 											SELECT
@@ -100,7 +99,7 @@
 											 ,rcd.ItemObs AS ObsItem
 											  FROM RequisicaoCompraDet rcd
 											  WHERE IdRc =  ".$idRc.")"; 
-				self::sqlExec($sqlDet);
+				self::sqlExecComp($sqlDet);
 				self::conn()->commit();				
 			return $ultimoid;							
 			}catch(Throwable $t){

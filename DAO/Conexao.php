@@ -91,6 +91,25 @@ require_once 'Constantes.php';
 			echo "Erro : ".$e->getMessage();
 		}
 	}
+	private static function ExecutarSqlComposto($sql){
+		try{
+			
+			$result = false;
+			$conn = self::conectar();
+			$stm = $conn->prepare($sql);		
+			if ($stm->execute()) {
+				return TRUE;
+			}			 
+		}
+		catch(PDOException $e){
+			return FALSE;
+			echo "Erro : ".$e->getMessage();
+		}
+	}	
+	
+	
+	
+	
 	private static function sqlExisteReg($sql){
 		try{			
 			$result = false;
@@ -117,20 +136,23 @@ require_once 'Constantes.php';
 	protected static function close(){
 		return self::fechar();
 	}
-	protected static function sqlSelectCount($Sql){
+	protected static function sqlSelectCount($sql){
 		return self::ContarLinhas($Sql);
 	}
-	protected static function sqlSelectAll($Sql){
-		return self::SelecionarTodos($Sql);
+	protected static function sqlSelectAll($sql){
+		return self::SelecionarTodos($sql);
 	}
-	protected static function sqlSelectOne($Sql){
-		return self::SelecionarUnico($Sql);
+	protected static function sqlSelectOne($sql){
+		return self::SelecionarUnico($sql);
 	}
-	protected static function sqlExec($Sql){
-		return self::ExecutarSql($Sql);
+	protected static function sqlExec($sql){
+		return self::ExecutarSql($sql);
 	}
-	protected static function sqlRecordBit($Sql){
-		return self::sqlExisteReg($Sql);
+	protected static function sqlRecordBit($sql){
+		return self::sqlExisteReg($sql);
+	}
+	protected static function sqlExecComp($sql){
+		return self::ExecutarSqlComposto($sql);
 	}
 }
 
