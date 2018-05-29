@@ -203,11 +203,11 @@
 				self::sqlExecComp($sqlDet);
 				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
 				$sqlCot = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
-				self::sqlExecComp($sqCot);
+				self::sqlExecComp($sqlCot);
 				//CONFIRMA AS ALTERAÇÕES NA BASE
 				self::conn()->commit();				
 				return $ultimoid;							
-			}catch(Throwable $t){
+			}catch(exception $e){
 				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
 				self::conn()->rollBack();
 				return false;
