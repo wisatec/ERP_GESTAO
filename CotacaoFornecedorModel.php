@@ -69,6 +69,10 @@
 		function MudaStatusEnvioAprov($cod,$idCot){
 			$result = CotacaoFornecedorDAO::MudaStatusEnvioAprovDAO($cod, $idCot);
 			return $result;
+		}
+		function AtualizaTipoAprovacaoDAO($idCot,$tipo){
+			$bool = CotacaoFornecedorDAO::AtualizaTipoAprovacaoDAO($idCot, $tipo);
+			return $bool;
 		}	
 	
 	}

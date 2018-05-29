@@ -140,6 +140,11 @@
   						WHERE idCotacao = ".$idCot;
 			$bool = self::sqlExec($sql);
 			return $bool;
+		}
+		static function AtualizaTipoAprovacaoDAO($idCot,$tipo){
+			$sql =  "UPDATE Cotacao SET TipoAprovacao = ".$tipo." WHERE idCotacao = ".$idCot;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}	
 }
 	
