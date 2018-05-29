@@ -83,7 +83,7 @@
 											   ,NULL AS IdEndereco
 											   ,NULL AS DtPrevisao
 											   ,NULL AS DtRecebimento
-											   ,0 AS NumeroNota
+											   ,rc.Nf AS NumeroNota
 											   ,NULL AS ArquivoNF
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
