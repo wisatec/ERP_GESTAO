@@ -183,7 +183,7 @@
 								  FROM Cotacao c
 								  INNER JOIN CotacaoTotal ct
 								  ON c.idCotacao = ct.idCotacao
-								  WHERE c.idCotacao = 6 AND ct.IdFornecedor =  ".$idForn.")";
+								  WHERE c.idCotacao = ".$idCot." AND ct.IdFornecedor =  ".$idForn.")";
 				self::sqlExecComp($sql);
 				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
 				$ultimoid = self::conn()->lastInsertId();
@@ -199,7 +199,7 @@
 								   ,cvi.VrSubTotalUnit AS VrTotalUnit 
 								   ,cvi.ObsItem AS ObsItem  
 								    FROM CotacaoValorItens cvi
-								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idCot.")"; 
+								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn.")"; 
 				self::sqlExecComp($sqlDet);
 				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
 				$sqlReq = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
