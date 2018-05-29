@@ -168,7 +168,7 @@
 								 ,NULL AS IdRc
 								 ,NOW() AS DtEmissao
 								 ,c.IdEmpresa AS IdEmpresa
-								 ,20 AS IdFornecedor
+								 ,".$idForn." AS IdFornecedor
 								 ,c.NomeComprador AS NomeComprador
 								 ,ct.flagFrete AS flagFrete
 								 ,ct.VrFrete AS VrFrete
@@ -202,11 +202,11 @@
 								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn.")"; 
 				self::sqlExecComp($sqlDet);
 				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
-				$sqlReq = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
-				self::sqlExecComp($sqlReq);
+				$sqlCot = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
+				self::sqlExecComp($sqCot);
 				//CONFIRMA AS ALTERAÇÕES NA BASE
 				self::conn()->commit();				
-			return $ultimoid;							
+				return $ultimoid;							
 			}catch(Throwable $t){
 				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
 				self::conn()->rollBack();
