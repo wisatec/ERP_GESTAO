@@ -140,7 +140,80 @@
   						WHERE idCotacao = ".$idCot;
 			$bool = self::sqlExec($sql);
 			return $bool;
+		}
+		static function AtualizaTipoAprovacaoDAO($idCot,$tipo){
+			$sql =  "UPDATE Cotacao SET TipoAprovacao = ".$tipo." WHERE idCotacao = ".$idCot;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}	
+		static function ObtemFornecedorAprovadoDAO($idCot){
+			$sql = "SELECT ct.IdFornecedor from CotacaoTotal ct where ct.idCotacao = ".$idCot." and ct.CotacaoAprov = 2";
+			$rs = self::sqlSelectOne($sql);
+			return $rs;
+		}
+		static function ObtemFornecedoresAprovadosDAO($idCot){
+			$sql = "SELECT ct.IdFornecedor from CotacaoTotal ct where ct.idCotacao = ".$idCot." and ct.CotacaoAprov = 2";
+			$rs = self::sqlSelectAll($sql);
+			return $rs;			
+		}
+		static function GerarPedidoCotacaoDAO($idCot,$idForn){
+			try{
+				//INICIA A TRANSAÇÃO
+				self::conn()->beginTransaction();
+				//INSERE OS DADOS NA TABELA PRINCIPAL
+				$sql = "INSERT INTO PedidoCompra
+								(SELECT 
+								  0 AS idPedido
+								 ,c.idCotacao AS idCotacao
+								 ,NULL AS IdRc
+								 ,NOW() AS DtEmissao
+								 ,c.IdEmpresa AS IdEmpresa
+								 ,20 AS IdFornecedor
+								 ,c.NomeComprador AS NomeComprador
+								 ,ct.flagFrete AS flagFrete
+								 ,ct.VrFrete AS VrFrete
+								 ,ct.vrTotalCotacao AS vrTotalPedido
+								 ,NULL AS Obs
+								  ,ct.idcondicao AS idcondicao
+								 ,c.IdEndereco AS IdEndereco
+								 ,NULL  AS DtPrevisao-- DtPrevisao - DATE
+								 ,NULL AS DtRecebimento
+								 ,0 AS NumeroNota
+								 ,NULL AS ArquivoNF
+								  FROM Cotacao c
+								  INNER JOIN CotacaoTotal ct
+								  ON c.idCotacao = ct.idCotacao
+								  WHERE c.idCotacao = 6 AND ct.IdFornecedor =  ".$idForn.")";
+				self::sqlExecComp($sql);
+				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
+				$ultimoid = self::conn()->lastInsertId();
+				// INSERE OS DADOS NA TABELA DETALHE
+				$sqlDet = "INSERT INTO PedidoCompraDet
+								  (SELECT 
+								    0  AS idPedidoDet
+								   ,".$ultimoid."  AS idPedido
+								   ,cvi.IdItem AS idItem 
+								   ,cvi.idMarca AS idMarca 
+								   ,cvi.QtdeItem AS QtdeItem 
+								   ,cvi.VrUnit AS VrUnit 
+								   ,cvi.VrSubTotalUnit AS VrTotalUnit 
+								   ,cvi.ObsItem AS ObsItem  
+								    FROM CotacaoValorItens cvi
+								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idCot.")"; 
+				self::sqlExecComp($sqlDet);
+				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
+				$sqlReq = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
+				self::sqlExecComp($sqlReq);
+				//CONFIRMA AS ALTERAÇÕES NA BASE
+				self::conn()->commit();				
+			return $ultimoid;							
+			}catch(Throwable $t){
+				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+				self::conn()->rollBack();
+				return false;
+			}
+
+		}
 }
 	
 ?>

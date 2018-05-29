@@ -69,8 +69,23 @@
 		function MudaStatusEnvioAprov($cod,$idCot){
 			$result = CotacaoFornecedorDAO::MudaStatusEnvioAprovDAO($cod, $idCot);
 			return $result;
+		}
+		function AtualizaTipoAprovacao($idCot,$tipo){
+			$bool = CotacaoFornecedorDAO::AtualizaTipoAprovacaoDAO($idCot, $tipo);
+			return $bool;
 		}	
-	
+		function ObtemFornecedorAprovado($idCot){
+			$rs = CotacaoFornecedorDAO::ObtemFornecedorAprovadoDAO($idCot);
+			return $rs;
+		}
+		function ObtemFornecedoresAprovados($idCot){
+			$rs = CotacaoFornecedorDAO::ObtemFornecedoresAprovadosDAO($idCot);
+			return $rs;
+		}
+		function GerarPedidoCotacao($idCot,$idForn){
+			$result = CotacaoFornecedorDAO::GerarPedidoCotacaoDAO($idCot, $idForn);
+			return $result;
+		}
 	}
 	
 	
