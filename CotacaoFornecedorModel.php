@@ -74,7 +74,14 @@
 			$bool = CotacaoFornecedorDAO::AtualizaTipoAprovacaoDAO($idCot, $tipo);
 			return $bool;
 		}	
-	
+		function ObtemFornecedorAprovado($idCot){
+			$rs = CotacaoFornecedorDAO::ObtemFornecedorAprovadoDAO($idCot);
+			return $rs;
+		}
+		function ObtemFornecedoresAprovados($idCot){
+			$rs = CotacaoFornecedorDAO::ObtemFornecedoresAprovadosDAO($idCot);
+			return $rs;
+		}
 	}
 	
 	
