@@ -152,7 +152,7 @@
 			return $rs;
 		}
 		static function ObtemFornecedoresAprovadosDAO($idCot){
-			$sql = "SELECT ct.IdFornecedor from CotacaoTotal ct where ct.idCotacao = ".$idCot." and ct.CotacaoAprov = 2";
+			$sql = "SELECT DISTINCT cvi.IdFornecedor FROM CotacaoValorItens cvi WHERE cvi.idCotacao = ".$idCot." AND cvi.ItemAprov = 2 ORDER BY 1";
 			$rs = self::sqlSelectAll($sql);
 			return $rs;			
 		}
