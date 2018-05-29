@@ -82,8 +82,8 @@
 			$rs = CotacaoFornecedorDAO::ObtemFornecedoresAprovadosDAO($idCot);
 			return $rs;
 		}
-		function GerarPedidoCotacao($idCot,$idForn){
-			$result = CotacaoFornecedorDAO::GerarPedidoCotacaoDAO($idCot, $idForn);
+		function GerarPedidoCotacao($idCot,$idForn,$tipo){
+			$result = CotacaoFornecedorDAO::GerarPedidoCotacaoDAO($idCot, $idForn, $tipo);
 			return $result;
 		}
 	}

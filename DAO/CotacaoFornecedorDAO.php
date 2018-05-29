@@ -156,7 +156,7 @@
 			$rs = self::sqlSelectAll($sql);
 			return $rs;			
 		}
-		static function GerarPedidoCotacaoDAO($idCot,$idForn){
+		static function GerarPedidoCotacaoDAO($idCot,$idForn,$tipo){
 			try{
 				//INICIA A TRANSAÇÃO
 				self::conn()->beginTransaction();
@@ -187,6 +187,7 @@
 				self::sqlExecComp($sql);
 				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
 				$ultimoid = self::conn()->lastInsertId();
+				if($tipo == 1){
 				// INSERE OS DADOS NA TABELA DETALHE
 				$sqlDet = "INSERT INTO PedidoCompraDet
 								  (SELECT 
@@ -200,7 +201,24 @@
 								   ,cvi.ObsItem AS ObsItem  
 								    FROM CotacaoValorItens cvi
 								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn.")"; 
+				
+				}elseif($tipo == 2){
+				// INSERE OS DADOS NA TABELA DETALHE
+				$sqlDet = "INSERT INTO PedidoCompraDet
+								  (SELECT 
+								    0  AS idPedidoDet
+								   ,".$ultimoid."  AS idPedido
+								   ,cvi.IdItem AS idItem 
+								   ,cvi.idMarca AS idMarca 
+								   ,cvi.QtdeItem AS QtdeItem 
+								   ,cvi.VrUnit AS VrUnit 
+								   ,cvi.VrSubTotalUnit AS VrTotalUnit 
+								   ,cvi.ObsItem AS ObsItem  
+								    FROM CotacaoValorItens cvi
+								    WHERE cvi.idCotacao = ".$idCot." AND cvi.ItemAprov = 2 AND cvi.IdFornecedor = ".$idForn.")";					
+				}
 				self::sqlExecComp($sqlDet);
+				
 				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
 				$sqlCot = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
 				self::sqlExecComp($sqlCot);
