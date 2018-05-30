@@ -175,18 +175,25 @@
 								 ,c.NomeComprador AS NomeComprador
 								 ,ct.flagFrete AS flagFrete
 								 ,ct.VrFrete AS VrFrete
-								 ,ct.vrTotalCotacao AS vrTotalPedido
+								 ,(CASE
+				                      WHEN c.TipoAprovacao = 1 THEN
+				                             ct.vrTotalCotacao
+				                      WHEN c.TipoAprovacao = 2 THEN 
+				                          (SELECT SUM(cvi.VrTotalUnit) FROM CotacaoValorItens cvi 
+				                            WHERE cvi.idCotacao = c.idCotacao 
+				                            AND cvi.IdFornecedor = ".$idForn." AND cvi.ItemAprov = 2)                     
+				                    END) AS vrTotalPedido                  
 								 ,NULL AS Obs
 								  ,ct.idcondicao AS idcondicao
 								 ,c.IdEndereco AS IdEndereco
-								 ,NULL  AS DtPrevisao-- DtPrevisao - DATE
+								 ,NULL  AS DtPrevisao
 								 ,NULL AS DtRecebimento
 								 ,0 AS NumeroNota
 								 ,NULL AS ArquivoNF
 								  FROM Cotacao c
 								  INNER JOIN CotacaoTotal ct
 								  ON c.idCotacao = ct.idCotacao
-								  WHERE c.idCotacao = ".$idCot." AND ct.IdFornecedor =  ".$idForn.")";
+								  WHERE c.idCotacao = ".$idCot." AND ct.IdFornecedor = ".$idForn.")";
 				$stm = self::conn()->prepare($sql);		
 				$stm->execute();
 				
