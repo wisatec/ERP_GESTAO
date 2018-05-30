@@ -63,8 +63,6 @@
 		}
 		static function GerarPedidoRequisicaoDAO($idRc){
 			try{
-				//INICIA A TRANSAÇÃO
-				self::conn()->beginTransaction();
 				//INSERE OS DADOS NA TABELA PRINCIPAL
 				$sql = "INSERT INTO PedidoCompra (
 											SELECT
@@ -87,29 +85,49 @@
 											   ,NULL AS ArquivoNF
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
-				self::sqlExecComp($sql);
-				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
-				$ultimoid = self::conn()->lastInsertId();
-				// INSERE OS DADOS NA TABELA DETALHE
-				$sqlDet = "INSERT INTO PedidoCompraDet (
-											SELECT
-											  0 As idPedidoDet
-											 ,".$ultimoid." AS idPedido
-											 ,rcd.IdItem AS IdItem
-											 ,rcd.idMarca AS idMarca
-											 ,rcd.QtdeItem AS QtdeItem
-											 ,rcd.VrUnit AS VrUnit
-											 ,rcd.VrTotalUnit AS VrTotalUnit
-											 ,rcd.ItemObs AS ObsItem
-											  FROM RequisicaoCompraDet rcd
-											  WHERE IdRc =  ".$idRc.")"; 
-				self::sqlExecComp($sqlDet);
-				//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
-				$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
-				self::sqlExecComp($sqlReq);
-				//CONFIRMA AS ALTERAÇÕES NA BASE
-				self::conn()->commit();				
-			return $ultimoid;							
+				$bool = self::sqlExecComp($sql);
+				if($bool){
+					//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
+					$ultimoid = self::conn()->lastInsertId();
+					// INSERE OS DADOS NA TABELA DETALHE
+					$sqlDet = "INSERT INTO PedidoCompraDet (
+												SELECT
+												  0 As idPedidoDet
+												 ,".$ultimoid." AS idPedido
+												 ,rcd.IdItem AS IdItem
+												 ,rcd.idMarca AS idMarca
+												 ,rcd.QtdeItem AS QtdeItem
+												 ,rcd.VrUnit AS VrUnit
+												 ,rcd.VrTotalUnit AS VrTotalUnit
+												 ,rcd.ItemObs AS ObsItem
+												  FROM RequisicaoCompraDet rcd
+												  WHERE IdRc =  ".$idRc.")"; 
+					$bool = self::sqlExecComp($sqlDet);
+					if($bool){
+						//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
+						$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
+						$bool = self::sqlExecComp($sqlReq);	
+						if($bool){
+							//CONFIRMA AS ALTERAÇÕES NA BASE
+							self::conn()->commit();	
+							return $ultimoid;						
+						}else{
+							// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+							self::conn()->rollBack();
+							return false;						
+						}
+					
+					}else{
+						// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+						self::conn()->rollBack();
+						return false;							
+					}				
+				}else{
+					// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+					self::conn()->rollBack();
+					return false;					
+				}			
+							
 			}catch(Throwable $t){
 				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
 				self::conn()->rollBack();
