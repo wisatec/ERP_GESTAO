@@ -158,6 +158,10 @@
 		}
 		static function GerarPedidoCotacaoDAO($idCot,$idForn,$tipo){
 			try{
+				//abre conexão
+				self::conn();
+				// inicia transação
+				self::conn()->beginTransaction();
 
 				//INSERE OS DADOS NA TABELA PRINCIPAL
 				$sql = "INSERT INTO PedidoCompra
@@ -183,66 +187,57 @@
 								  INNER JOIN CotacaoTotal ct
 								  ON c.idCotacao = ct.idCotacao
 								  WHERE c.idCotacao = ".$idCot." AND ct.IdFornecedor =  ".$idForn.")";
-				$bool = self::sqlExecComp($sql);
-				if($bool){
-					//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
-					$ultimoid = self::conn()->lastInsertId();
-					if($tipo == 1){
-					// INSERE OS DADOS NA TABELA DETALHE
-					$sqlDet = "INSERT INTO PedidoCompraDet
-									  (SELECT 
-									    0  AS idPedidoDet
-									   ,".$ultimoid."  AS idPedido
-									   ,cvi.IdItem AS idItem 
-									   ,cvi.idMarca AS idMarca 
-									   ,cvi.QtdeItem AS QtdeItem 
-									   ,cvi.VrUnit AS VrUnit 
-									   ,cvi.VrSubTotalUnit AS VrTotalUnit 
-									   ,cvi.ObsItem AS ObsItem  
-									    FROM CotacaoValorItens cvi
-									    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn.")"; 
-					
-					}
-					elseif($tipo == 2){
-					// INSERE OS DADOS NA TABELA DETALHE
-					$sqlDet = "INSERT INTO PedidoCompraDet
-									  (SELECT 
-									    0  AS idPedidoDet
-									   ,".$ultimoid."  AS idPedido
-									   ,cvi.IdItem AS idItem 
-									   ,cvi.idMarca AS idMarca 
-									   ,cvi.QtdeItem AS QtdeItem 
-									   ,cvi.VrUnit AS VrUnit 
-									   ,cvi.VrSubTotalUnit AS VrTotalUnit 
-									   ,cvi.ObsItem AS ObsItem  
-									    FROM CotacaoValorItens cvi
-									    WHERE cvi.idCotacao = ".$idCot." AND cvi.ItemAprov = 2 AND cvi.IdFornecedor = ".$idForn.")";					
-					}
-					$bool = self::sqlExecComp($sqlDet);					
-					if($bool){
-						//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
-						$sqlCot = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
-						$bool = self::sqlExecComp($sqlCot);	
-						if($bool){
-							//CONFIRMA AS ALTERAÇÕES NA BASE
-							self::conn()->commit();				
-							return $ultimoid;							
-						}else{
-							// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-							self::conn()->rollBack();
-						}				
-					}else{
-						// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-						self::conn()->rollBack();
-					}					
-				}else{
-						// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-						self::conn()->rollBack();
-				}							
-			}catch(exception $e){
-				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+				$stm = self::conn()->prepare($sql);		
+				$stm->execute();
+				
+				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
+				$ultimoid = self::conn()->lastInsertId();
+				if($tipo == 1){
+				// INSERE OS DADOS NA TABELA DETALHE
+				$sqlDet = "INSERT INTO PedidoCompraDet
+								  (SELECT 
+								    0  AS idPedidoDet
+								   ,".$ultimoid."  AS idPedido
+								   ,cvi.IdItem AS idItem 
+								   ,cvi.idMarca AS idMarca 
+								   ,cvi.QtdeItem AS QtdeItem 
+								   ,cvi.VrUnit AS VrUnit 
+								   ,cvi.VrSubTotalUnit AS VrTotalUnit 
+								   ,cvi.ObsItem AS ObsItem  
+								    FROM CotacaoValorItens cvi
+								    WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn.")"; 
+				
+				}elseif($tipo == 2){
+				// INSERE OS DADOS NA TABELA DETALHE
+				$sqlDet = "INSERT INTO PedidoCompraDet
+								  (SELECT 
+								    0  AS idPedidoDet
+								   ,".$ultimoid."  AS idPedido
+								   ,cvi.IdItem AS idItem 
+								   ,cvi.idMarca AS idMarca 
+								   ,cvi.QtdeItem AS QtdeItem 
+								   ,cvi.VrUnit AS VrUnit 
+								   ,cvi.VrSubTotalUnit AS VrTotalUnit 
+								   ,cvi.ObsItem AS ObsItem  
+								    FROM CotacaoValorItens cvi
+								    WHERE cvi.idCotacao = ".$idCot." AND cvi.ItemAprov = 2 AND cvi.IdFornecedor = ".$idForn.")";					
+				}
+				$stm = self::conn()->prepare($sqlDet);		
+				$stm->execute();
+
+				//ATUALIZA O STATUS DA COTAÇÃO PARA ENCERRADA
+				$sqlCot = "UPDATE Cotacao set PedidoGerado = 2 , flagStatusCotacao = 2  WHERE idCotacao = ".$idCot;
+				$stm = self::conn()->prepare($sqlCot);		
+				$stm->execute();							
+							
+				self::conn()->commit();				
+				return $ultimoid;
+			}
+			catch(PDOException $e){
 				self::conn()->rollBack();
-				return false;
+				self::close();
+				return FALSE;
+				echo "Erro : ".$e->getMessage();
 			}
 
 		}

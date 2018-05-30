@@ -94,7 +94,6 @@ require_once 'Constantes.php';
 	private static function ExecutarSqlComposto($sql){
 		try{
 			
-			$result = false;
 			$conn = self::conectar();
 			$conn->beginTransaction();
 			$stm = $conn->prepare($sql);		
