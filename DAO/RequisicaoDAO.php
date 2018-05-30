@@ -63,6 +63,11 @@
 		}
 		static function GerarPedidoRequisicaoDAO($idRc){
 			try{
+				//ABRE A CONEXÃO
+				self::conn();
+				//INICIA A TRANSAÇÃO
+				self::conn()->beginTransaction();
+				
 				//INSERE OS DADOS NA TABELA PRINCIPAL
 				$sql = "INSERT INTO PedidoCompra (
 											SELECT
@@ -85,53 +90,39 @@
 											   ,NULL AS ArquivoNF
 											  FROM RequisicaoCompra rc
 											  WHERE IdRc =  ".$idRc.")";
-				$bool = self::sqlExecComp($sql);
-				if($bool){
-					//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
-					$ultimoid = self::conn()->lastInsertId();
-					// INSERE OS DADOS NA TABELA DETALHE
-					$sqlDet = "INSERT INTO PedidoCompraDet (
-												SELECT
-												  0 As idPedidoDet
-												 ,".$ultimoid." AS idPedido
-												 ,rcd.IdItem AS IdItem
-												 ,rcd.idMarca AS idMarca
-												 ,rcd.QtdeItem AS QtdeItem
-												 ,rcd.VrUnit AS VrUnit
-												 ,rcd.VrTotalUnit AS VrTotalUnit
-												 ,rcd.ItemObs AS ObsItem
-												  FROM RequisicaoCompraDet rcd
-												  WHERE IdRc =  ".$idRc.")"; 
-					$bool = self::sqlExecComp($sqlDet);
-					if($bool){
-						//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
-						$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
-						$bool = self::sqlExecComp($sqlReq);	
-						if($bool){
-							//CONFIRMA AS ALTERAÇÕES NA BASE
-							self::conn()->commit();	
-							return $ultimoid;						
-						}else{
-							// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-							self::conn()->rollBack();
-							return false;						
-						}
-					
-					}else{
-						// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-						self::conn()->rollBack();
-						return false;							
-					}				
-				}else{
-					// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
-					self::conn()->rollBack();
-					return false;					
-				}			
+				$stm = self::conn()->prepare($sql);		
+				$stm->execute();
+				//OBTEM O ULTIMO ID INSERIDO NO INSERT ANTERIOR
+				$ultimoid = self::conn()->lastInsertId();
+				// INSERE OS DADOS NA TABELA DETALHE
+				$sqlDet = "INSERT INTO PedidoCompraDet (
+											SELECT
+											  0 As idPedidoDet
+											 ,".$ultimoid." AS idPedido
+											 ,rcd.IdItem AS IdItem
+											 ,rcd.idMarca AS idMarca
+											 ,rcd.QtdeItem AS QtdeItem
+											 ,rcd.VrUnit AS VrUnit
+											 ,rcd.VrTotalUnit AS VrTotalUnit
+											 ,rcd.ItemObs AS ObsItem
+											  FROM RequisicaoCompraDet rcd
+											  WHERE IdRc =  ".$idRc.")"; 
+				$stm = self::conn()->prepare($sqlDet);		
+				$stm->execute();
+				
+				//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
+				$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
+				$bool = self::sqlExecComp($sqlReq);	
+
+				//CONFIRMA AS ALTERAÇÕES NA BASE
+				self::conn()->commit();	
+				return $ultimoid;								
 							
-			}catch(Throwable $t){
-				// DESFAZ TODA A OPERAÇÃO EFETUADA NO BANCO
+			}catch(PDOException $e){
 				self::conn()->rollBack();
-				return false;
+				self::close();
+				return FALSE;
+				echo "Erro : ".$e->getMessage();
 			}
 
 		}
