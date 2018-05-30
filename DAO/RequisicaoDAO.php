@@ -112,7 +112,8 @@
 				
 				//ATUALIZA O STATUS DA REQUISICAO PARA ENCERRADA
 				$sqlReq = "UPDATE RequisicaoCompra set StatusRc = 2 WHERE IdRc =  ".$idRc;
-				$bool = self::sqlExecComp($sqlReq);	
+				$stm = self::conn()->prepare($sqlReq);		
+				$stm->execute();
 
 				//CONFIRMA AS ALTERAÇÕES NA BASE
 				self::conn()->commit();	
