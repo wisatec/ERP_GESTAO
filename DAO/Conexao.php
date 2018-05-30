@@ -96,6 +96,7 @@ require_once 'Constantes.php';
 			
 			$result = false;
 			$conn = self::conectar();
+			$conn->beginTransaction();
 			$stm = $conn->prepare($sql);		
 			if ($stm->execute()) {
 				return TRUE;
