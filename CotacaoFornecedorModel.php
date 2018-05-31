@@ -86,6 +86,10 @@
 			$result = CotacaoFornecedorDAO::GerarPedidoCotacaoDAO($idCot, $idForn, $tipo);
 			return $result;
 		}
+		function RemoverCheckboxAprov($idCot,$tipo){
+			$bool = CotacaoFornecedorDAO::RemoverCheckboxAprovDAO($idCot, $tipo);
+			return $bool;
+		}
 	}
 	
 	
