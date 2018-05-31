@@ -8,4 +8,6 @@ define('ICONE_BLOQUEIO_LIBERADO',"<img src = '../_lib/img/liberado.png' >");
 define('ICONE_BLOQUEIO_BLOQUEADO',"<img src = '../_lib/img/bloqueado.png' >");
 define('LINK_ACESSO_FORNECEDOR','www.grupowisatec.com.br/scriptcase9/app/Projeto_ERP/SenhaCotacao');
 define('URL_APLICACAO',"http://$_SERVER[HTTP_HOST]"."/scriptcase9/app/Projeto_ERP");
+define('ICONE_APROVACAO_APROVADO',"<img src = '../_lib/img/aprovado.png' >");
+define('ICONE_APROVACAO_REPROVADO',"<img src = '../_lib/img/reprovado.png' >");
 ?>
