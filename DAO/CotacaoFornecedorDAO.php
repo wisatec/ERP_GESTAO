@@ -251,9 +251,9 @@
 		static function RemoverCheckboxAprovDAO($idCot,$tipo){
 			$sql="";
 			if($tipo == 1){
-				$sql = "UPDATE CotacaoValorItens SET ItemAprov = 1 WHERE idCotacao = ".$idCot;
+				$sql = "UPDATE CotacaoValorItens_ SET ItemAprov = 1 WHERE idCotacao = ".$idCot;
 			}elseif($tipo == 2){
-				$sql = "UPDATE CotacaoTotal SET CotacaoAprov = 1 WHERE idCotacao = ".$idCot;
+				$sql = "UPDATE CotacaoTotal_ SET CotacaoAprov = 1 WHERE idCotacao = ".$idCot;
 			}
 			$bool = self::sqlExec($sql);
 			return $bool;
