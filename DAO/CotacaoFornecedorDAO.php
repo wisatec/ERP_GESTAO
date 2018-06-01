@@ -282,7 +282,32 @@
 			$bool = self::sqlExec($sql);
 			return $bool;
 		}
-		
+		static function ObterTotalCotacaoDAO($idCot,$idForn){
+			$sql = "SELECT (CASE 
+         						WHEN SUM(cvi.VrTotalUnit) IS NULL  THEN 0
+         						ELSE SUM(cvi.VrTotalUnit)
+       						END) AS subtotal 
+							 ,(CASE 
+	         						WHEN SUM(ct.VrFrete) IS NULL  THEN 0
+	         						ELSE SUM(ct.VrFrete)
+	       						END) AS frete             
+	    						FROM CotacaoValorItens cvi
+	                INNER JOIN CotacaoTotal ct
+	                ON cvi.idCotacao = ct.idCotacao AND
+	                cvi.IdFornecedor = ct.IdFornecedor 
+					WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn ;
+			$bool = self::sqlExec($sql);
+			return $bool;
 		}
+		static function AtualizarValoresTotaisDAO($idCot,$idForn ,$subTot,$Total){
+			$sql = "UPDATE CotacaoTotal ct 
+				SET ct.vrSubTotalCotacao = ".$subTot." , 
+					ct.vrTotalCotacao = ".$Total." 
+					WHERE ct.idCotacao = ".$idCot."AND ct.idFornecedor = ".$idForn ;
+			$bool = self::sqlExec($sql);
+			return $bool;		
+		}
+
+}
 	
 ?>

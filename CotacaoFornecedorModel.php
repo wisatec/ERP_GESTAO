@@ -90,7 +90,16 @@
 			$bool = CotacaoFornecedorDAO::RemoverCheckboxAprovDAO($idCot, $tipo);
 			return $bool;
 		}
-	}
+		function ObterTotalCotacao($idCot, $idForn){
+			$bool = CotacaoFornecedorDAO::ObterTotalCotacaoDAO($idCot, $idForn);
+			return $bool;
+		}
+		function AtualizarValoresTotais($idCot,$idForn ,$subTot,$Total){
+			$bool = CotacaoFornecedorDAO::AtualizarValoresTotaisDAO($idCot, $subTot, $Total);
+			return $bool;
+		}
+	
+}
 	
 	
 ?>
