@@ -142,9 +142,33 @@
 			return $bool;
 		}
 		static function AtualizaTipoAprovacaoDAO($idCot,$tipo){
-			$sql =  "UPDATE Cotacao SET TipoAprovacao = ".$tipo." WHERE idCotacao = ".$idCot;
-			$bool = self::sqlExec($sql);
-			return $bool;
+			try{
+				//abre conexão
+				self::conn();
+				// inicia transação
+				self::conn()->beginTransaction();
+				
+				$sql =  "UPDATE Cotacao SET TipoAprovacao = ".$tipo." WHERE idCotacao = ".$idCot;
+				$stm = self::conn()->prepare($sql);		
+				$stm->execute();
+							
+				$sql="";
+				if($tipo == 1){
+					$sql = "UPDATE CotacaoValorItens SET ItemAprov = 1 WHERE idCotacao = ".$idCot;
+				}elseif($tipo == 2){
+					$sql = "UPDATE CotacaoTotal SET CotacaoAprov = 1 WHERE idCotacao = ".$idCot;
+				}
+				$stm = self::conn()->prepare($sql);		
+				$stm->execute();
+				self::conn()->commit();	
+				return TRUE;
+			}
+			catch(PDOException $e){
+				self::conn()->rollBack();
+				self::close();
+				return FALSE;
+				echo "Erro : ".$e->getMessage();
+			}
 		}	
 		static function ObtemFornecedorAprovadoDAO($idCot){
 			$sql = "SELECT ct.IdFornecedor from CotacaoTotal ct where ct.idCotacao = ".$idCot." and ct.CotacaoAprov = 2";
