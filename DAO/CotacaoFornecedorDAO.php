@@ -296,8 +296,8 @@
 	                ON cvi.idCotacao = ct.idCotacao AND
 	                cvi.IdFornecedor = ct.IdFornecedor 
 					WHERE cvi.idCotacao = ".$idCot." AND cvi.IdFornecedor = ".$idForn ;
-			$bool = self::sqlExec($sql);
-			return $bool;
+			$rs = self::sqlSelectOne($sql);
+			return $rs;
 		}
 		static function AtualizarValoresTotaisDAO($idCot,$idForn ,$subTot,$Total){
 			$sql = "UPDATE CotacaoTotal ct 
