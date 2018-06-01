@@ -300,10 +300,10 @@
 			return $rs;
 		}
 		static function AtualizarValoresTotaisDAO($idCot,$idForn ,$subTot,$Total){
-			$sql = "UPDATE CotacaoTotal ct 
-				SET ct.vrSubTotalCotacao = ".$subTot." , 
-					ct.vrTotalCotacao = ".$Total." 
-					WHERE ct.idCotacao = ".$idCot."AND ct.idFornecedor = ".$idForn ;
+			$sql = "UPDATE CotacaoTotal 
+				SET vrSubTotalCotacao = ".$subTot." , 
+					vrTotalCotacao = ".$Total." 
+					WHERE idCotacao = ".$idCot." AND idFornecedor = ".$idForn ;
 			$bool = self::sqlExec($sql);
 			return $bool;		
 		}
