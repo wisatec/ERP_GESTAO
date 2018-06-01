@@ -76,18 +76,17 @@ require_once 'Constantes.php';
 	private static function ExecutarSql($sql){
 		try{
 			
-			$result = false;
 			$conn = self::conectar();
 			$conn->beginTransaction();
 			$stm = $conn->prepare($sql);		
 			if ($stm->execute()) {
 				$conn->commit();
-				return TRUE;
+				return 1;
 			}			 
 		}
 		catch(PDOException $e){
 			self::$instance->rollBack();
-			return FALSE;
+			return 0;
 			echo "Erro : ".$e->getMessage();
 		}
 	}
