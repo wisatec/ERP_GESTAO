@@ -95,7 +95,7 @@
 			return $bool;
 		}
 		function AtualizarValoresTotais($idCot,$idForn ,$subTot,$Total){
-			$bool = CotacaoFornecedorDAO::AtualizarValoresTotaisDAO($idCot, $subTot, $Total);
+			$bool = CotacaoFornecedorDAO::AtualizarValoresTotaisDAO($idCot, $idForn, $subTot, $Total);
 			return $bool;
 		}
 	
