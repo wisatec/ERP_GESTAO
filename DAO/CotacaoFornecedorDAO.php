@@ -288,8 +288,8 @@
          						ELSE SUM(cvi.VrTotalUnit)
        						END) AS subtotal 
 							 ,(CASE 
-	         						WHEN SUM(ct.VrFrete) IS NULL  THEN 0
-	         						ELSE SUM(ct.VrFrete)
+	         						WHEN ct.VrFrete IS NULL  THEN 0
+	         						ELSE ct.VrFrete
 	       						END) AS frete             
 	    						FROM CotacaoValorItens cvi
 	                INNER JOIN CotacaoTotal ct
