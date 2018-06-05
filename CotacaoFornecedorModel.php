@@ -98,6 +98,10 @@
 			$bool = CotacaoFornecedorDAO::AtualizarValoresTotaisDAO($idCot, $idForn, $subTot, $Total);
 			return $bool;
 		}
+		function MudarStatusCotacao($idCot){
+			$bool = CotacaoFornecedorDAO::MudarStatusCotacao($idCot);
+			return $bool;
+		}
 	
 }
 	

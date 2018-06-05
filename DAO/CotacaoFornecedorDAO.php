@@ -313,7 +313,11 @@
 			$bool = self::sqlExec($sql);
 			return $bool;		
 		}
-
+		static function MudarStatusCotacao($idCot){
+			$sql = "UPDATE Cotacao c SET c.flagStatusCotacao = 4 WHERE c.idCotacao = ".$idCot;
+			$bool = self::sqlExec($sql);
+			return $bool;
+		}
 }
 	
 ?>
