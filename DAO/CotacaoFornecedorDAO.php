@@ -141,7 +141,7 @@
 			$bool = self::sqlExec($sql);
 			return $bool;
 		}
-		static function AtualizaTipoAprovacaoDAO($idCot,$tipo){
+		static function AtualizaTipoAprovacaoDAO($idCot,$tipo,$idForn){
 			try{
 				//abre conexão
 				self::conn();
@@ -154,13 +154,19 @@
 							
 				$sql="";
 				if($tipo == 1){
-					$sql = "UPDATE CotacaoValorItens SET ItemAprov = 1 WHERE idCotacao = ".$idCot;
+					$sql = "UPDATE CotacaoValorItens SET ItemAprov = 2 WHERE idCotacao = ".$idCot." AND idFornecedor = ".$idForn;
+					$stm = self::conn()->prepare($sql);		
+					$stm->execute();
+					
+					$sql = "UPDATE CotacaoValorItens SET ItemAprov = 1 WHERE idCotacao = ".$idCot." AND idFornecedor != ".$idForn;
+					$stm = self::conn()->prepare($sql);		
+					$stm->execute();						
 				}elseif($tipo == 2){
 					$sql = "UPDATE CotacaoTotal SET CotacaoAprov = 1 WHERE idCotacao = ".$idCot;
+					$stm = self::conn()->prepare($sql);		
+					$stm->execute();
 				}
-				$stm = self::conn()->prepare($sql);		
-				$stm->execute();
-				self::conn()->commit();	
+				self::conn()->commit();
 				return TRUE;
 			}
 			catch(PDOException $e){

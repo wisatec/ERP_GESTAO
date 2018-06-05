@@ -70,8 +70,8 @@
 			$result = CotacaoFornecedorDAO::MudaStatusEnvioAprovDAO($cod, $idCot);
 			return $result;
 		}
-		function AtualizaTipoAprovacao($idCot,$tipo){
-			$bool = CotacaoFornecedorDAO::AtualizaTipoAprovacaoDAO($idCot, $tipo);
+		function AtualizaTipoAprovacao($idCot,$tipo,$idForn){
+			$bool = CotacaoFornecedorDAO::AtualizaTipoAprovacaoDAO($idCot, $tipo, $idForn);
 			return $bool;
 		}	
 		function ObtemFornecedorAprovado($idCot){
