@@ -116,6 +116,17 @@
 			$sql = "SELECT m.DescrMarca FROM Marca m WHERE m.idMarca = ".$idmarca;
 			$rs = self::sqlSelectOne($sql);
 			return $rs;			
+		}
+		static function ObterVrVendaDAO($idItem,$idTabela){
+			$sql = " SELECT
+					   i.IdItem
+					  ,ip.idTabela
+					  ,ip.VrVenda
+					  FROM Item i
+					  INNER JOIN ItemPreco ip 
+					  ON i.IdItem = ip.IdItem
+					  WHERE i.iditem = ".$idItem." AND ip.idTabela = ".$idTabela;
+			$rs = self::sqlSelectOne($sql);
 		}		
 }
     
