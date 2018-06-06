@@ -92,6 +92,10 @@
 			$rs = ItemDAO::ObterVrVendaDAO($idItem, $idTabela);
 			return $rs;
 		}
+		function ObterTabelasItem($idItem){
+			$rs = ItemDAO::ObterTabelasItemDAO($idItem);
+			return $rs;
+		}
 	}
     
 ?>

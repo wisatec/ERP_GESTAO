@@ -125,7 +125,20 @@
 					  ON i.IdItem = ip.IdItem
 					  WHERE i.iditem = ".$idItem." AND ip.idTabela = ".$idTabela;
 			$rs = self::sqlSelectOne($sql);
-		}		
+		}
+		static function ObterTabelasItemDAO($idItem){
+			$sql = "  SELECT
+					  tt.idTabela AS cod
+					  ,tt.DescrTabela AS descricao
+					  FROM Item i
+					  INNER JOIN ItemPreco ip
+					  ON i.IdItem = ip.IdItem
+					  INNER JOIN TipoTabela tt
+					  ON ip.idTabela = tt.idTabela
+					  WHERE i.iditem = ".$idItem;
+			$rs = self::sqlSelectAll($sql);
+			return $rs;
+		}				
 }
     
 ?>
