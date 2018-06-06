@@ -119,9 +119,7 @@
 		}
 		static function ObterVrVendaDAO($idItem,$idTabela){
 			$sql = " SELECT
-					   i.IdItem
-					  ,ip.idTabela
-					  ,ip.VrVenda
+					  ip.VrVenda
 					  FROM Item i
 					  INNER JOIN ItemPreco ip 
 					  ON i.IdItem = ip.IdItem
