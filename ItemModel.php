@@ -88,7 +88,7 @@
 			$rs = ItemDAO::ObterMarcaDAO($idmarca);
 			return $rs;		
 		}
-		function ObterVrVendaDAO($idItem,$idTabela){
+		function ObterVrVenda($idItem,$idTabela){
 			$rs = ItemDAO::ObterVrVendaDAO($idItem, $idTabela);
 			return $rs;
 		}
