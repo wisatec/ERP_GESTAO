@@ -61,19 +61,21 @@
 			return $result;				
 		} 
 		
-		static function SomaValorPropostaDAO($id){
-			$sql = "SELECT (CASE 
-         			WHEN SUM(pcd.vrTotalGeralUnit) IS NULL  THEN 0
-         			ELSE SUM(pcd.vrTotalGeralUnit) - SUM(pcd.vrDesc)
-       				END) AS total 
-    				FROM PropostaComercialDet pcd   WHERE pcd.IdProposta = ".$id;
+		static function SomaValoresPropostaDAO($id){
+			$sql = "SELECT
+					  SUM(pcd.VrSubTotalUnit) AS subtotalUnitario
+					  ,SUM(pcd.vrDesc) AS descontos
+					  ,SUM(pcd.vrTotalGeralUnit) AS totalUnitario 
+					  FROM PropostaComercial pc
+					  INNER JOIN PropostaComercialDet pcd
+					  ON pc.IdProposta = pcd.IdProposta
+					  WHERE pc.IdProposta = ".$id;
 			$result = self::sqlSelectOne($sql);
-			self::close();
 			return $result;
 		}	
 		
-		static function AtualizarTotalPropostaDAO($idReq,$vrTotal){
-			$sql = "UPDATE PropostaComercial set ValorTotal = ".$vrTotal.",vrSubTotal = ".$vrTotal."  WHERE IdProposta = ".$idReq;
+		static function AtualizarTotalPropostaDAO($idProp,$vrSub,$vrDesc,$vrTot){
+			$sql = "UPDATE PropostaComercial pc SET pc.vrSubTotal = ".$vrSub." , pc.vrDesc = ".$vrDesc." , pc.ValorTotal = ".$vrTot." WHERE pc.IdProposta = ".$idProp;
 			$result = self::sqlExec($sql);
 			return $result;
 		}
