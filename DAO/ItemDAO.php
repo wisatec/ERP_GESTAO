@@ -125,6 +125,7 @@
 					  ON i.IdItem = ip.IdItem
 					  WHERE i.iditem = ".$idItem." AND ip.idTabela = ".$idTabela;
 			$rs = self::sqlSelectOne($sql);
+			return $rs;
 		}
 		static function ObterTabelasItemDAO($idItem){
 			$sql = "  SELECT
